@@ -37,7 +37,10 @@ namespace SistemaDeGestion2026
 
         private bool VerificarIntegridad()
         {
-            bool respuesta = true;            
+            bool respuesta = true;
+            aususis usuario2 = new aususis();
+            usuario2.causnomlog = TXTNombreLogin.Text;
+
 
             if (TXTNombreLogin.Text.Replace(" ", "") == "")
             {
@@ -45,7 +48,14 @@ namespace SistemaDeGestion2026
                 TXTNombreLogin.Focus();
                 respuesta = false;
             }
-            
+            else if (usuario2.ObtenerDatosLogin(modificar, usuario.causnomlog))
+            {
+                MessageBox.Show("Este login ya existe", "Validación", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                TXTNombreLogin.Focus();
+                respuesta = false;
+            }
+
+
             return respuesta;
         }
         private void LimpiarCasillas()
