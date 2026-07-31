@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System;
+using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
@@ -44,6 +46,12 @@ namespace SistemaDeGestion2026
             FRMUsuario_Lista a = new FRMUsuario_Lista();
             a.MdiParent = this;
             a.Show();
+        }
+
+        private void BTNLogin_Click(object sender, EventArgs e)
+        {
+            FRMIniciar_Sesion a = new FRMIniciar_Sesion();
+            a.ShowDialog();
         }
     }
 }

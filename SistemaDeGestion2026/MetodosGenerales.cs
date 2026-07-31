@@ -203,5 +203,13 @@ namespace SistemaDeGestion2026
             }
         }
         #endregion
+        #region Validacion de contraseñas
+
+        public static int ValidadPassword(string password)
+        {
+            return 0;
+        }
+
+        #endregion
     }
 }
