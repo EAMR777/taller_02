@@ -22,7 +22,7 @@ namespace CapaRN
         private string _fauscodper;
         private string _causnomlog;
         private string _causpasswo;
-        private string _cuascodhu1;
+        private string _causcodhu1;
         private string _causcodhu2;
         private string _causcodhu3;
         private string _causcodhu4;
@@ -99,10 +99,10 @@ namespace CapaRN
             get { return this._causpasswo; }
             set { this._causpasswo = value; }
         }
-        public string cuascodhu1
+        public string causcodhu1
         {
-            get { return this._cuascodhu1; }
-            set { this._cuascodhu1 = value; }
+            get { return this._causcodhu1; }
+            set { this._causcodhu1 = value; }
         }
         public string causcodhu2
         {
@@ -195,7 +195,7 @@ namespace CapaRN
             this._fauscodper = "";
             this._causnomlog = "";
             this._causpasswo = "";
-            this._cuascodhu1 = "";
+            this._causcodhu1 = "";
             this._causcodhu2 = "";
             this._causcodhu3 = "";
             this._causcodhu4 = "";
@@ -276,7 +276,7 @@ namespace CapaRN
                     Auxiliar.fauscodper = ResultadoConsulta.GetString(8);
                     Auxiliar.causnomlog = ResultadoConsulta.GetString(9);
                     Auxiliar.causpasswo = ResultadoConsulta.GetString(10);
-                    Auxiliar.cuascodhu1 = ResultadoConsulta.GetString(11);
+                    Auxiliar.causcodhu1 = ResultadoConsulta.GetString(11);
                     Auxiliar.causcodhu2 = ResultadoConsulta.GetString(12);
                     Auxiliar.causcodhu3 = ResultadoConsulta.GetString(13);
                     Auxiliar.causcodhu4 = ResultadoConsulta.GetString(14);
