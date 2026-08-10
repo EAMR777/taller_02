@@ -54,37 +54,9 @@
     <Reference Include="DPFPShrXTypeLibNET, Version=1.0.0.0, Culture=neutral, PublicKeyToken=c0c98f712d5392a7">
       <EmbedInteropTypes>True</EmbedInteropTypes>
     </Reference>
-    <Reference Include="Microsoft.Bcl.AsyncInterfaces, Version=8.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
-      <HintPath>..\packages\Microsoft.Bcl.AsyncInterfaces.8.0.0\lib\net462\Microsoft.Bcl.AsyncInterfaces.dll</HintPath>
-    </Reference>
     <Reference Include="System" />
-    <Reference Include="System.Buffers, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
-      <HintPath>..\packages\System.Buffers.4.5.1\lib\net461\System.Buffers.dll</HintPath>
-    </Reference>
     <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
-    <Reference Include="System.Memory, Version=4.0.1.2, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
-      <HintPath>..\packages\System.Memory.4.5.5\lib\net461\System.Memory.dll</HintPath>
-    </Reference>
-    <Reference Include="System.Numerics" />
-    <Reference Include="System.Numerics.Vectors, Version=4.1.4.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
-      <HintPath>..\packages\System.Numerics.Vectors.4.5.0\lib\net46\System.Numerics.Vectors.dll</HintPath>
-    </Reference>
-    <Reference Include="System.Runtime.CompilerServices.Unsafe, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
-      <HintPath>..\packages\System.Runtime.CompilerServices.Unsafe.6.0.0\lib\net461\System.Runtime.CompilerServices.Unsafe.dll</HintPath>
-    </Reference>
-    <Reference Include="System.Text.Encodings.Web, Version=8.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
-      <HintPath>..\packages\System.Text.Encodings.Web.8.0.0\lib\net462\System.Text.Encodings.Web.dll</HintPath>
-    </Reference>
-    <Reference Include="System.Text.Json, Version=8.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
-      <HintPath>..\packages\System.Text.Json.8.0.0\lib\net462\System.Text.Json.dll</HintPath>
-    </Reference>
-    <Reference Include="System.Threading.Tasks.Extensions, Version=4.2.0.1, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
-      <HintPath>..\packages\System.Threading.Tasks.Extensions.4.5.4\lib\net461\System.Threading.Tasks.Extensions.dll</HintPath>
-    </Reference>
-    <Reference Include="System.ValueTuple, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
-      <HintPath>..\packages\System.ValueTuple.4.5.0\lib\net47\System.ValueTuple.dll</HintPath>
-    </Reference>
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -101,6 +73,12 @@
     </Compile>
     <Compile Include="FRMIniciar_Sesion.Designer.cs">
       <DependentUpon>FRMIniciar_Sesion.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FRMIniciar_Sesion_Huella.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FRMIniciar_Sesion_Huella.Designer.cs">
+      <DependentUpon>FRMIniciar_Sesion_Huella.cs</DependentUpon>
     </Compile>
     <Compile Include="FRMModificar_Password.cs">
       <SubType>Form</SubType>
@@ -155,6 +133,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="FRMIniciar_Sesion.resx">
       <DependentUpon>FRMIniciar_Sesion.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FRMIniciar_Sesion_Huella.resx">
+      <DependentUpon>FRMIniciar_Sesion_Huella.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FRMModificar_Password.resx">
       <DependentUpon>FRMModificar_Password.cs</DependentUpon>
@@ -296,10 +277,28 @@
     <None Include="Resources\ic_ok.png" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Resources\ic_ingresar.png" />
-    <Content Include="Resources\ic_mostrar_password.png" />
-    <Content Include="Resources\ic_salir_app.png" />
-    <Content Include="Resources\Image1.png" />
+    <None Include="Resources\ic_configurar.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ic_salir_app.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ic_iniciar_sesion.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ip_actualizar_password.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ic_cerrar_sesion.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ic_mostrar_password.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ic_ingresar.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ic_iniciar_sesion_huella.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

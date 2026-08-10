@@ -30,6 +30,7 @@ namespace SistemaDeGestion2026
             return Convert.ToBase64String(imageBytes);
         }
         #endregion
+
         #region Numero a literal
         private static readonly string[] unidades = {
         "", "uno", "dos", "tres", "cuatro", "cinco", "seis", "siete", "ocho", "nueve"
@@ -203,11 +204,59 @@ namespace SistemaDeGestion2026
             }
         }
         #endregion
+
         #region Validacion de contraseñas
 
-        public static int ValidadPassword(string password)
+        public static int ValidarPassword(String password)
         {
-            return 0;
+
+            if (password.Length >= 8)
+            {
+
+
+                bool numero = password.Any(char.IsDigit);
+                bool mayuscula = password.Any(char.IsUpper);
+                bool minuscula = password.Any(char.IsLower);
+                bool caracterEspecial = password.Any(c => !char.IsLetterOrDigit(c));
+
+                int cont = 0;
+
+                bool[] vec = { numero, mayuscula, minuscula, caracterEspecial };
+
+                foreach (bool a in vec)
+                {
+                    if (a)
+                    {
+                        cont++;
+                    }
+                }
+
+                if (cont == 4)
+                {
+                    return 3;
+                }
+                else
+                {
+                    if (cont >= 2)
+                    {
+                        return 2;
+                    }
+                    else
+                    {
+                        return 1;
+                    }
+                }
+
+            }
+            else
+            {
+                return 0;
+            }
+
+
+
+
+
         }
 
         #endregion

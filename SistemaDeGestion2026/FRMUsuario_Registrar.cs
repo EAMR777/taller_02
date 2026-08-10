@@ -41,7 +41,6 @@ namespace SistemaDeGestion2026
             aususis usuario2 = new aususis();
             usuario2.causnomlog = TXTNombreLogin.Text;
 
-
             if (TXTNombreLogin.Text.Replace(" ", "") == "")
             {
                 MessageBox.Show("Introduzca el LOGIN del usuario", "Validación", MessageBoxButtons.OK, MessageBoxIcon.Warning);
@@ -50,11 +49,10 @@ namespace SistemaDeGestion2026
             }
             else if (usuario2.ObtenerDatosLogin(modificar, usuario.causnomlog))
             {
-                MessageBox.Show("Este login ya existe", "Validación", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Ya existe ese Login Registrado", "Validación", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 TXTNombreLogin.Focus();
                 respuesta = false;
             }
-
 
             return respuesta;
         }
@@ -193,7 +191,7 @@ namespace SistemaDeGestion2026
                 usuario.causestusu = SWBEstado.Value;
                 usuario.causnomlog = TXTNombreLogin.Text;
                 if (!modificar)
-                    usuario.causactpas = false;
+                    usuario.causactpas = true;
 
                 usuario.causmashue = DPEHuellas.EnrolledFingerMask;                
                 usuario.fauscodper = persona.papscodper;

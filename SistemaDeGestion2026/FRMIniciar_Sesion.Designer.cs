@@ -105,7 +105,7 @@
             // 
             this.BTNPassword.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
             this.BTNPassword.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
-            this.BTNPassword.Image = global::SistemaDeGestion2026.Properties.Resources.ic_usuario_cambiar_password;
+            this.BTNPassword.Image = global::SistemaDeGestion2026.Properties.Resources.ic_mostrar_password;
             this.BTNPassword.ImageFixedSize = new System.Drawing.Size(20, 20);
             this.BTNPassword.Location = new System.Drawing.Point(216, 35);
             this.BTNPassword.Name = "BTNPassword";

@@ -14,12 +14,8 @@ namespace SistemaDeGestion2026
     public partial class FRMUsuario_Lista : DevComponents.DotNetBar.Office2007Form
     {
         #region Variables
-        
         private lususis lusuario = new lususis();
-        
         private aususis ausuario = new aususis();
-        
-        
         private List<lususis> lista_usuarios = new List<lususis>();
         #endregion
 
@@ -55,17 +51,13 @@ namespace SistemaDeGestion2026
                 {
                     DTGLista.Rows[DTGLista.Rows.Count - 1].DefaultCellStyle.BackColor = Color.Salmon;
                 }
-        
                 DTGLista[0, DTGLista.Rows.Count - 1].Value = a.pauscodusu;
-                
                 DTGLista[1, DTGLista.Rows.Count - 1].Value = a.causestusu;
-                
                 DTGLista[2, DTGLista.Rows.Count - 1].Value = a.capsnumcid;
-                
                 DTGLista[3, DTGLista.Rows.Count - 1].Value = a.capsapepat + " " +
                                                              a.capsapemat + " " +
                                                              a.capsnomper;
-                DTGLista[4, DTGLista.Rows.Count - 1].Value = a.causnomlog;                
+                DTGLista[4, DTGLista.Rows.Count - 1].Value = a.causnomlog;
             }
         }
         #endregion
@@ -74,27 +66,16 @@ namespace SistemaDeGestion2026
         private void FRMUsuario_Lista_Load(object sender, EventArgs e)
         {
             this.WindowState = FormWindowState.Maximized;
-            
-            
             ActualizarGrid();
-        
-        
         }
 
         private void BTNRegistrar_Click(object sender, EventArgs e)
         {
-
             FRMUsuario_Registrar a = new FRMUsuario_Registrar();
-            
             a.ShowDialog();
-
-
-
             if (a.actualizar)
             {
-            
-                
-                    ActualizarGrid();
+                ActualizarGrid();
             }
         }
 
@@ -107,17 +88,10 @@ namespace SistemaDeGestion2026
         {
             if (DTGLista.SelectedRows.Count > 0)
             {
-               
                 FRMUsuario_Registrar F1 = new FRMUsuario_Registrar();
-                
                 F1.modificar = true;
-                
                 F1.codUsuMod = DTGLista[0, DTGLista.SelectedRows[0].Index].Value.ToString();
-                
-                
                 F1.ShowDialog();
-                
-                
                 if (F1.actualizar)
                 {
                     ActualizarGrid();
@@ -169,19 +143,14 @@ namespace SistemaDeGestion2026
         {
             if (DTGLista.SelectedRows.Count > 0)
             {
-              
                 ausuario.pauscodusu = DTGLista[0, DTGLista.SelectedRows[0].Index].Value.ToString();
                 if (ausuario.ObtenerDatos())
                 {
-                
                     ausuario.causestusu = true;
                     if (ausuario.Modificar())
-                    
                     {
-                    
                         MessageBox.Show("Usuario habilitado correctamente");
                         ActualizarGrid();
-                    
                     }
                 }
             }
@@ -196,16 +165,13 @@ namespace SistemaDeGestion2026
                 {
                     if (ausuario.causestusu)
                     {
-
                         CMSMenu.Items[2].Visible = false;
                         CMSMenu.Items[1].Visible = true;
 
                     }
                     else
                     {
-                        
                         CMSMenu.Items[2].Visible = true;
-                        
                         CMSMenu.Items[1].Visible = false;
                     }
                 }
@@ -222,5 +188,38 @@ namespace SistemaDeGestion2026
         }
 
         #endregion
+
+        private void BTNActualizarPassword_Click(object sender, EventArgs e)
+        {
+            if (DTGLista.SelectedRows.Count > 0)
+            {
+                if (MessageBox.Show("¿Esta seguro que desea resetear el Password del usuario " +
+                                DTGLista[3, DTGLista.SelectedRows[0].Index].Value.ToString() + "?",
+                                "Confirmación",
+                                MessageBoxButtons.YesNo,
+                                MessageBoxIcon.Question,
+                                MessageBoxDefaultButton.Button2) == DialogResult.Yes)
+                {
+                    ausuario.pauscodusu = DTGLista[0, DTGLista.SelectedRows[0].Index].Value.ToString();
+                    ausuario.ObtenerDatos();
+                    ausuario.causactpas = true;
+                    if (ausuario.Modificar())
+                    {
+                        MessageBox.Show("Password reseteado correctamente. El usuario deberá cambiar su password en el próximo inicio de sesión. Al loguear debe colocar como password su número de documento.",
+                                        "Mensaje",
+                                        MessageBoxButtons.OK,
+                                        MessageBoxIcon.Information);
+                    }
+                    else
+                    {
+                        MessageBox.Show("Error al resetear el password del usuario.",
+                                        "Error",
+                                        MessageBoxButtons.OK,
+                                        MessageBoxIcon.Error);
+                    }
+
+                }
+            }
+        }
     }
 }

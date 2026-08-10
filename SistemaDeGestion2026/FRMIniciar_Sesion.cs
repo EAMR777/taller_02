@@ -17,6 +17,7 @@ namespace SistemaDeGestion2026
             public aususis usuario = new aususis();
             public aperson persona = new aperson();
             public bool loginExitoso = false;
+            public bool actualizarPassword = false;
         #endregion
 
         #region Constructor
@@ -86,6 +87,7 @@ namespace SistemaDeGestion2026
                                                         persona.capsapemat , 
                                         "Validación", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         loginExitoso = true;
+                        actualizarPassword = true;
                         this.Close();
                     }
                 }
@@ -98,6 +100,7 @@ namespace SistemaDeGestion2026
                                                         persona.capsapemat,
                                         "Validación", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         loginExitoso = true;
+                        actualizarPassword = false;
                         this.Close();
                     }
                 }

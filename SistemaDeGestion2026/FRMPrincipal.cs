@@ -1,7 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System;
-using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
@@ -50,7 +48,25 @@ namespace SistemaDeGestion2026
 
         private void BTNLogin_Click(object sender, EventArgs e)
         {
-            FRMIniciar_Sesion a = new FRMIniciar_Sesion();
+            FRMIniciar_Sesion a = new FRMIniciar_Sesion();            
+            a.ShowDialog();
+            if (a.actualizarPassword)
+            {
+                FRMModificar_Password b = new FRMModificar_Password();
+                b.usuario = a.usuario;
+                b.persona = a.persona;
+                b.ShowDialog();
+            }
+            if (a.loginExitoso)
+            {
+                //Cambiar el estado del formulario principal
+            }
+
+        }
+
+        private void BTNLoginHuella_Click(object sender, EventArgs e)
+        {
+            FRMIniciar_Sesion_Huella a = new FRMIniciar_Sesion_Huella();
             a.ShowDialog();
         }
     }

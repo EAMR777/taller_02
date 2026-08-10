@@ -1,4 +1,5 @@
 ﻿using CapaRN;
+using DevComponents.DotNetBar.Controls;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -17,6 +18,7 @@ namespace SistemaDeGestion2026
         public aususis usuario = new aususis();
         public aperson persona = new aperson();
         public bool loginExitoso = false;
+        public int NivelSeguridad=0;
         #endregion
 
         #region Constructor
@@ -73,6 +75,73 @@ namespace SistemaDeGestion2026
             {
                 TXTConfirmarPassword.PasswordChar = '*';
             }
+        }
+
+        private void TXTPassword_TextChanged(object sender, EventArgs e)
+        {
+            NivelSeguridad = MetodosGenerales.ValidarPassword(TXTPassword.Text);
+            if (NivelSeguridad == 0)
+            { 
+                LBLMensaje.Text = "Password inadmisible";
+                LBLMensaje.BackColor = Color.Salmon;
+            }
+            else if (NivelSeguridad == 1)
+            {
+                LBLMensaje.Text = "Seguridad Baja";
+                LBLMensaje.BackColor = Color.SandyBrown;
+            }
+            else if (NivelSeguridad == 2)
+            {
+                LBLMensaje.Text = "Seguridad Media";
+                LBLMensaje.BackColor = Color.LightYellow;
+            }
+            else if (NivelSeguridad == 3)
+            {
+                LBLMensaje.Text = "Seguridad Alta";
+                LBLMensaje.BackColor = Color.LightGreen;
+            }
+        }
+
+        private void FRMModificar_Password_Load(object sender, EventArgs e)
+        {
+            TXTNombreLogin.Text = usuario.causnomlog;
+        }
+
+        private void BTNGuardar_Click(object sender, EventArgs e)
+        {
+            if (TXTPassword.Text == TXTConfirmarPassword.Text)
+            {
+                if (NivelSeguridad == 3)
+                {
+                    usuario.causactpas = false;
+                    usuario.causpasswo = TXTPassword.Text;
+                    if (usuario.Modificar())
+                    {
+                        MessageBox.Show("Password modificado correctamente", "Validación", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        this.Close();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Error al modificar el password", "Validación", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("El nivel de seguridad de la contraseña no es suficiente", "Validación", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    TXTPassword.Focus();
+                }
+            }
+            else
+            {
+                MessageBox.Show("Password no coincide", "Validación", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                TXTPassword.Focus();
+            }
+        }
+
+        private void TXTPassword_Enter(object sender, EventArgs e)
+        {
+            TextBoxX a = (TextBoxX)sender;
+            a.SelectAll();
         }
     }
 }
