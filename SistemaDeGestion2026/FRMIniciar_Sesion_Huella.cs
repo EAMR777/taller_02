@@ -51,10 +51,11 @@ namespace SistemaDeGestion2026
                     if (Res.Verified)
                     {
                         ban = true;
+                        lusuario = u;
                         break;
                     }
                 }
-               else if ((u.causnumhu2 > 0) && (!ban))
+               else if ((u.causnumhu2 > 0))
                 {
                     T = new DPFP.Template();
                     T.DeSerialize(Convert.FromBase64String(u.causcodhu2));
@@ -62,10 +63,11 @@ namespace SistemaDeGestion2026
                     if (Res.Verified)
                     {
                         ban = true;
+                        lusuario = u;
                         break;
                     }
                 }
-               else if ((u.causnumhu3 > 0) && (!ban))
+               else if ((u.causnumhu3 > 0))
                 {
                     T = new DPFP.Template();
                     T.DeSerialize(Convert.FromBase64String(u.causcodhu3));
@@ -73,11 +75,12 @@ namespace SistemaDeGestion2026
                     if (Res.Verified)
                     {
                         ban = true;
+                        lusuario = u;
                         break;
                     }
                 }
 
-                else if ((u.causnumhu4 > 0) && (!ban))
+                else if ((u.causnumhu4 > 0) )
                 {
                     T = new DPFP.Template();
                     T.DeSerialize(Convert.FromBase64String(u.causcodhu4));
@@ -85,6 +88,7 @@ namespace SistemaDeGestion2026
                     if (Res.Verified)
                     {
                         ban = true;
+                        lusuario = u;
                         break;
                     }
                 }
@@ -94,7 +98,20 @@ namespace SistemaDeGestion2026
 
 
             }
+            if (ban)
+            {
+                MessageBox.Show("Bienvenido" + lusuario.capsnomper + "" + lusuario.capsapepat + "" + lusuario.capsapemat);
+                usuario.pauscodusu = lusuario.pauscodusu;
+                usuario.ObtenerDatos();
+                persona.papscodper = lusuario.papscodper;
+                loginExitoso = true;
+                this.Close();
 
+            }
+            else 
+            {
+                MessageBox.Show("Huellas no identificada");
+            }
             
             }
         }
