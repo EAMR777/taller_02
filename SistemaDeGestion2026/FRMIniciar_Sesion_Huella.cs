@@ -33,16 +33,16 @@ namespace SistemaDeGestion2026
 
         private void VCHuella_OnComplete(object Control, DPFP.FeatureSet FeatureSet, ref DPFP.Gui.EventHandlerStatus EventHandlerStatus)
         {
-            MessageBox.Show("Huella digital leida correctamente.", "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            List<lususis> lususis = lusuario.Lista("causestusu=true");
 
-            
+            listaUsuarios = lusuario.Lista("causestusu=true");
+
             DPFP.Verification.Verification Ver = new DPFP.Verification.Verification();
             DPFP.Verification.Verification.Result Res = new DPFP.Verification.Verification.Result();
-            bool ban = false;
             DPFP.Template T = new DPFP.Template();
+            bool ban = false;
 
-            foreach (lususis u in listaUsuarios) {
+            foreach (lususis u in listaUsuarios)
+            {
                 if (u.causnumhu1 > 0)
                 {
                     T = new DPFP.Template();
@@ -55,7 +55,7 @@ namespace SistemaDeGestion2026
                         break;
                     }
                 }
-               else if ((u.causnumhu2 > 0))
+                else if (u.causnumhu2 > 0)
                 {
                     T = new DPFP.Template();
                     T.DeSerialize(Convert.FromBase64String(u.causcodhu2));
@@ -67,7 +67,7 @@ namespace SistemaDeGestion2026
                         break;
                     }
                 }
-               else if ((u.causnumhu3 > 0))
+                else if (u.causnumhu3 > 0)
                 {
                     T = new DPFP.Template();
                     T.DeSerialize(Convert.FromBase64String(u.causcodhu3));
@@ -79,8 +79,7 @@ namespace SistemaDeGestion2026
                         break;
                     }
                 }
-
-                else if ((u.causnumhu4 > 0) )
+                else if (u.causnumhu4 > 0)
                 {
                     T = new DPFP.Template();
                     T.DeSerialize(Convert.FromBase64String(u.causcodhu4));
@@ -92,28 +91,25 @@ namespace SistemaDeGestion2026
                         break;
                     }
                 }
-
-                
-
-
-
             }
+
             if (ban)
             {
-                MessageBox.Show("Bienvenido" + lusuario.capsnomper + "" + lusuario.capsapepat + "" + lusuario.capsapemat);
+                MessageBox.Show("Bienvenido " + lusuario.capsnomper +
+                                          " " + lusuario.capsapepat +
+                                          " " + lusuario.capsapemat, "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 usuario.pauscodusu = lusuario.pauscodusu;
                 usuario.ObtenerDatos();
                 persona.papscodper = lusuario.papscodper;
+                persona.ObtenerDatos();
                 loginExitoso = true;
                 this.Close();
-
             }
-            else 
+            else
             {
-                MessageBox.Show("Huellas no identificada");
-            }
-            
+                MessageBox.Show("Huella no identificada", "Información", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
     }
+}
 
