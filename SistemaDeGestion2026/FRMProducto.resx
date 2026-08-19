@@ -121,7 +121,7 @@
   <data name="PCBFotografia.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAGQAAABkCAYAAABw4pVUAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAL
-        EAAACxABrSO9dQAAB6pJREFUeF7tnUfILEUUhX+zYk6IOeecI2ZBFAUjJlRUUAwYMS4MuDAibowYFgYU
+        DgAACw4BQL7hQQAAB6pJREFUeF7tnUfILEUUhX+zYk6IOeecI2ZBFAUjJlRUUAwYMS4MuDAibowYFgYU
         VDCgYgTBjCAqogtzzjmn8w2W9GvvTFf1VHffeX8f+BbvOV23Xh97uurWrZopQwuKh8UWgz/16lQLiefE
         3+IbsbnoSnuKm8UjmaHNPYR7YcbzAjMCXZlyrSj2owmuFm5lmRHAlDa/vvYTVj+aYF/hTsWvqWF8K9ow
         ZTbxurD60ARviNmFK90jrM6WacOUI4QVu0kOE660vHhLWJ0t84PYVjShOUVsP3LytiC2K3kw5QRhxWuD
@@ -160,7 +160,7 @@
   <data name="PCBCamara.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAGQAAABkCAYAAABw4pVUAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAL
-        EAAACxABrSO9dQAAB6pJREFUeF7tnUfILEUUhX+zYk6IOeecI2ZBFAUjJlRUUAwYMS4MuDAibowYFgYU
+        DgAACw4BQL7hQQAAB6pJREFUeF7tnUfILEUUhX+zYk6IOeecI2ZBFAUjJlRUUAwYMS4MuDAibowYFgYU
         VDCgYgTBjCAqogtzzjmn8w2W9GvvTFf1VHffeX8f+BbvOV23Xh97uurWrZopQwuKh8UWgz/16lQLiefE
         3+IbsbnoSnuKm8UjmaHNPYR7YcbzAjMCXZlyrSj2owmuFm5lmRHAlDa/vvYTVj+aYF/hTsWvqWF8K9ow
         ZTbxurD60ARviNmFK90jrM6WacOUI4QVu0kOE660vHhLWJ0t84PYVjShOUVsP3LytiC2K3kw5QRhxWuD
@@ -196,13 +196,4 @@
         ezlE4QAAAABJRU5ErkJggg==
 </value>
   </data>
-  <metadata name="BLTAyuda.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>17, 17</value>
-  </metadata>
-  <metadata name="OFDElegirImagen.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>141, 17</value>
-  </metadata>
-  <metadata name="$this.TrayHeight" type="System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>29</value>
-  </metadata>
 </root>

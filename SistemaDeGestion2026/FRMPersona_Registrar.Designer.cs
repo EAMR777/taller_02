@@ -282,7 +282,7 @@
             this.TXTCI.Location = new System.Drawing.Point(9, 35);
             this.TXTCI.Name = "TXTCI";
             this.TXTCI.PreventEnterBeep = true;
-            this.TXTCI.Size = new System.Drawing.Size(149, 26);
+            this.TXTCI.Size = new System.Drawing.Size(149, 23);
             this.TXTCI.TabIndex = 0;
             this.TXTCI.WatermarkText = "CI";
             this.TXTCI.Enter += new System.EventHandler(this.TXTCI_Enter);
@@ -304,7 +304,7 @@
             this.TXTApellidoPaterno.Location = new System.Drawing.Point(9, 67);
             this.TXTApellidoPaterno.Name = "TXTApellidoPaterno";
             this.TXTApellidoPaterno.PreventEnterBeep = true;
-            this.TXTApellidoPaterno.Size = new System.Drawing.Size(149, 26);
+            this.TXTApellidoPaterno.Size = new System.Drawing.Size(149, 23);
             this.TXTApellidoPaterno.TabIndex = 2;
             this.TXTApellidoPaterno.WatermarkText = "Apellido Paterno";
             this.TXTApellidoPaterno.Enter += new System.EventHandler(this.TXTCI_Enter);
@@ -347,7 +347,7 @@
             this.TXTCorreoElectronico.Location = new System.Drawing.Point(98, 131);
             this.TXTCorreoElectronico.Name = "TXTCorreoElectronico";
             this.TXTCorreoElectronico.PreventEnterBeep = true;
-            this.TXTCorreoElectronico.Size = new System.Drawing.Size(215, 26);
+            this.TXTCorreoElectronico.Size = new System.Drawing.Size(215, 23);
             this.TXTCorreoElectronico.TabIndex = 6;
             this.TXTCorreoElectronico.WatermarkText = "Correo Electrónico";
             this.TXTCorreoElectronico.Enter += new System.EventHandler(this.TXTCI_Enter);
@@ -369,7 +369,7 @@
             this.TXTCelular.Location = new System.Drawing.Point(10, 131);
             this.TXTCelular.Name = "TXTCelular";
             this.TXTCelular.PreventEnterBeep = true;
-            this.TXTCelular.Size = new System.Drawing.Size(82, 26);
+            this.TXTCelular.Size = new System.Drawing.Size(82, 23);
             this.TXTCelular.TabIndex = 5;
             this.TXTCelular.WatermarkText = "Celular";
             this.TXTCelular.Enter += new System.EventHandler(this.TXTCI_Enter);
@@ -391,7 +391,7 @@
             this.TXTNombres.Location = new System.Drawing.Point(9, 99);
             this.TXTNombres.Name = "TXTNombres";
             this.TXTNombres.PreventEnterBeep = true;
-            this.TXTNombres.Size = new System.Drawing.Size(304, 26);
+            this.TXTNombres.Size = new System.Drawing.Size(304, 23);
             this.TXTNombres.TabIndex = 4;
             this.TXTNombres.WatermarkText = "Nombres";
             this.TXTNombres.Enter += new System.EventHandler(this.TXTCI_Enter);
@@ -413,7 +413,7 @@
             this.TXTApellidoMaterno.Location = new System.Drawing.Point(164, 67);
             this.TXTApellidoMaterno.Name = "TXTApellidoMaterno";
             this.TXTApellidoMaterno.PreventEnterBeep = true;
-            this.TXTApellidoMaterno.Size = new System.Drawing.Size(149, 26);
+            this.TXTApellidoMaterno.Size = new System.Drawing.Size(149, 23);
             this.TXTApellidoMaterno.TabIndex = 3;
             this.TXTApellidoMaterno.WatermarkText = "Apellido Materno";
             this.TXTApellidoMaterno.Enter += new System.EventHandler(this.TXTCI_Enter);
@@ -462,7 +462,7 @@
             this.DTINacimiento.MonthCalendar.NavigationBackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
             this.DTINacimiento.MonthCalendar.TodayButtonVisible = true;
             this.DTINacimiento.Name = "DTINacimiento";
-            this.DTINacimiento.Size = new System.Drawing.Size(149, 26);
+            this.DTINacimiento.Size = new System.Drawing.Size(149, 23);
             this.DTINacimiento.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
             this.DTINacimiento.TabIndex = 1;
             this.DTINacimiento.WatermarkText = "Nacimiento";
@@ -519,7 +519,7 @@
             // FRMPersona_Registrar
             // 
             this.AcceptButton = this.BTNGrabar;
-            this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.CancelButton = this.BTNSalir;
             this.ClientSize = new System.Drawing.Size(703, 323);
