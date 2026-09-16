@@ -1,15 +1,6 @@
-﻿using AForge.Video.DirectShow;
-using CapaRN;
+﻿using CapaRN;
 using DevComponents.DotNetBar.Controls;
-using SistemaDeGestion2026.Properties;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace SistemaDeGestion2026
@@ -72,9 +63,9 @@ namespace SistemaDeGestion2026
             persona.papscodper = usuario.fauscodper;
             persona.ObtenerDatos();
             SWBEstado.Value = usuario.causestusu;
-            TXTCI.Text = persona.capsnumcid;            
-            TXTNombres.Text =   persona.capsapepat + " " + 
-                                persona.capsapemat + " " + 
+            TXTCI.Text = persona.capsnumcid;
+            TXTNombres.Text = persona.capsapepat + " " +
+                                persona.capsapemat + " " +
                                 persona.capsnomper;
             DPEHuellas.EnrolledFingerMask = usuario.causmashue;
             TXTNombreLogin.Text = usuario.causnomlog;
@@ -96,7 +87,7 @@ namespace SistemaDeGestion2026
                                 MessageBoxDefaultButton.Button2) == DialogResult.No)
             {
                 e.Cancel = true;
-            }            
+            }
         }
 
         private void TXTCI_Enter(object sender, EventArgs e)
@@ -173,7 +164,7 @@ namespace SistemaDeGestion2026
         private void BTNGrabar_Click(object sender, EventArgs e)
         {
             if (VerificarIntegridad())
-            {                
+            {
                 if (!this.modificar)
                 {
                     //Generar el correlativo
@@ -187,13 +178,14 @@ namespace SistemaDeGestion2026
                 else
                 {
                     usuario.pauscodusu = this.codUsuMod;
-                }                
+                }
                 usuario.causestusu = SWBEstado.Value;
                 usuario.causnomlog = TXTNombreLogin.Text;
                 if (!modificar)
+                {
                     usuario.causactpas = true;
-
-                usuario.causmashue = DPEHuellas.EnrolledFingerMask;                
+                }
+                usuario.causmashue = DPEHuellas.EnrolledFingerMask;
                 usuario.fauscodper = persona.papscodper;
 
                 if (!this.modificar)
@@ -206,7 +198,7 @@ namespace SistemaDeGestion2026
                                         MessageBoxIcon.Information);
                         LimpiarCasillas();
                         this.actualizar = true;
-                        this.FormClosing -= FRMUsuario_Registrar_FormClosing;                        
+                        this.FormClosing -= FRMUsuario_Registrar_FormClosing;
                         this.Close();
                     }
                     else
@@ -227,7 +219,7 @@ namespace SistemaDeGestion2026
                                         MessageBoxIcon.Information);
                         LimpiarCasillas();
                         this.actualizar = true;
-                        this.FormClosing -= FRMUsuario_Registrar_FormClosing;                        
+                        this.FormClosing -= FRMUsuario_Registrar_FormClosing;
                         this.Close();
                     }
                     else
@@ -240,7 +232,7 @@ namespace SistemaDeGestion2026
                 }
             }
         }
-        
+
         private void DPEHuellas_OnDelete(object Control, int FingerMask, ref DPFP.Gui.EventHandlerStatus EventHandlerStatus)
         {
             if (usuario.causnumhu1 == FingerMask)

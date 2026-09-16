@@ -1,16 +1,13 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-//LIbrerias para conexion a PosgreSQL
+﻿//LIbrerias para conexion a PosgreSQL
 using Npgsql;
+using System;
 //Libreria para leer de un Archivo de Configuración
 using System.Configuration;
-//Libreria para escribir y leer de un archivo de texto
-using System.IO;
 //Libreria de Datos
 using System.Data;
 using System.Data.Common;
+//Libreria para escribir y leer de un archivo de texto
+using System.IO;
 
 namespace CapaAD
 {
@@ -127,17 +124,28 @@ namespace CapaAD
         private void Log(string msg_error)
         {
             string path = "ErrorLog.log";
-            StreamWriter sw = File.AppendText(path);
             try
             {
-                sw.WriteLine(DateTime.Now.ToString("dd/MM/yyyy hh:mm:ss tt") + "|" + this.Comando.CommandText + "|" + msg_error);
+                string comandoText = "<NULL>";
+                try
+                {
+                    if (this.Comando != null && this.Comando.CommandText != null)
+                        comandoText = this.Comando.CommandText;
+                }
+                catch
+                {
+                    comandoText = "<ERROR_OBTeniendo_CommandText>";
+                }
+
+                using (StreamWriter sw = File.AppendText(path))
+                {
+                    sw.WriteLine(DateTime.Now.ToString("dd/MM/yyyy hh:mm:ss tt") + "|" + comandoText + "|" + msg_error);
+                }
             }
-            catch (Exception ex)
+            catch
             {
-                sw.WriteLine(DateTime.Now.ToString("dd/MM/yyyy hh:mm:ss tt") + "|" + ex.Message + "|" + msg_error);
+                // No-op: evitar que el propio logger lance excepciones que oculten la excepción original
             }
-            sw.Flush();
-            sw.Close();
         }
 
         /// <summary>
@@ -337,7 +345,7 @@ namespace CapaAD
         public void AsignarParametroFechaMes(string nombre, DateTime valor)
         {
             //AsignarParametro(nombre, "'", valor.ToString("MM/dd/yy HH:mm:ss"));
-            AsignarParametro(nombre, "'", valor.ToString("yyyy/MM/")+"01");
+            AsignarParametro(nombre, "'", valor.ToString("yyyy/MM/") + "01");
         }
 
         /// <summary>

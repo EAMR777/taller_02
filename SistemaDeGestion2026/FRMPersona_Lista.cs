@@ -2,11 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace SistemaDeGestion2026
@@ -14,8 +10,8 @@ namespace SistemaDeGestion2026
     public partial class FRMPersona_Lista : DevComponents.DotNetBar.Office2007Form
     {
         #region Variables
-           private aperson persona = new aperson();
-           private List<aperson> lista_personas = new List<aperson>();
+        private aperson persona = new aperson();
+        private List<aperson> lista_personas = new List<aperson>();
         #endregion
 
         #region Constructor
@@ -84,7 +80,7 @@ namespace SistemaDeGestion2026
         {
             FRMPersona_Registrar a = new FRMPersona_Registrar();
             a.ShowDialog();
-        }        
+        }
 
         private void BTNReporte_Click(object sender, EventArgs e)
         {
@@ -127,7 +123,7 @@ namespace SistemaDeGestion2026
         private void BTNFiltrar_Click(object sender, EventArgs e)
         {
             ActualizarGrid();
-        }        
+        }
 
         private void modificarToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -199,7 +195,7 @@ namespace SistemaDeGestion2026
                 }
             }
             else
-            { 
+            {
                 e.Cancel = true;
             }
         }

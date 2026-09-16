@@ -2,9 +2,6 @@
 using System;
 using System.Collections.Generic;
 using System.Data.Common;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace CapaRN
 {
@@ -249,7 +246,7 @@ namespace CapaRN
                                  "capsfotper," +
                                  "capsnumcid," +
                                  "capsapepat " +
-                         "from aususis,aperson "+
+                         "from aususis,aperson " +
                          "where papscodper=fauscodper ";
 
             if (where.Replace(" ", "") != "")

@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace SistemaDeGestion2026
 {
-    public partial class FRMProducto : Form
+    public partial class FRMProducto_Lista : DevComponents.DotNetBar.Office2007Form
     {
-        public FRMProducto()
+        public FRMProducto_Lista()
         {
             InitializeComponent();
         }

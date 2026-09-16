@@ -8,11 +8,10 @@
     <OutputType>WinExe</OutputType>
     <RootNamespace>SistemaDeGestion2026</RootNamespace>
     <AssemblyName>SistemaDeGestion2026</AssemblyName>
-    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.6.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <Deterministic>true</Deterministic>
-    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -56,7 +55,7 @@
     </Reference>
     <Reference Include="DPFPVerNET, Version=1.3.0.0, Culture=neutral, PublicKeyToken=4de0a9c4dcc83984, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\..\..\Program Files\DigitalPersona\One Touch SDK\.NET\Bin\DPFPVerNET.dll</HintPath>
+      <HintPath>C:\Program Files\DigitalPersona\One Touch SDK\.NET\Bin\DPFPVerNET.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Configuration" />
@@ -72,6 +71,42 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="FRMCategoria_Lista.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FRMCategoria_Lista.Designer.cs">
+      <DependentUpon>FRMCategoria_Lista.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FRMCategoria_Registrar.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FRMCategoria_Registrar.Designer.cs">
+      <DependentUpon>FRMCategoria_Registrar.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FRMCliente_Lista.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FRMCliente_Lista.Designer.cs">
+      <DependentUpon>FRMCliente_Lista.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FRMCliente_Registrar.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FRMCliente_Registrar.Designer.cs">
+      <DependentUpon>FRMCliente_Registrar.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FRMFondo_1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FRMFondo_1.Designer.cs">
+      <DependentUpon>FRMFondo_1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FRMFondo_2.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FRMFondo_2.Designer.cs">
+      <DependentUpon>FRMFondo_2.cs</DependentUpon>
+    </Compile>
     <Compile Include="FRMIniciar_Sesion.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -114,11 +149,17 @@
     <Compile Include="FRMPrincipal.Designer.cs">
       <DependentUpon>FRMPrincipal.cs</DependentUpon>
     </Compile>
-    <Compile Include="FRMProducto.cs">
+    <Compile Include="FRMProducto_Lista.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FRMProducto.Designer.cs">
-      <DependentUpon>FRMProducto.cs</DependentUpon>
+    <Compile Include="FRMProducto_Lista.Designer.cs">
+      <DependentUpon>FRMProducto_Lista.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FRMProducto_Registrar.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FRMProducto_Registrar.Designer.cs">
+      <DependentUpon>FRMProducto_Registrar.cs</DependentUpon>
     </Compile>
     <Compile Include="FRMSplash.cs">
       <SubType>Form</SubType>
@@ -141,6 +182,24 @@
     <Compile Include="MetodosGenerales.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="FRMCategoria_Lista.resx">
+      <DependentUpon>FRMCategoria_Lista.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FRMCategoria_Registrar.resx">
+      <DependentUpon>FRMCategoria_Registrar.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FRMCliente_Lista.resx">
+      <DependentUpon>FRMCliente_Lista.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FRMCliente_Registrar.resx">
+      <DependentUpon>FRMCliente_Registrar.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FRMFondo_1.resx">
+      <DependentUpon>FRMFondo_1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FRMFondo_2.resx">
+      <DependentUpon>FRMFondo_2.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FRMIniciar_Sesion.resx">
       <DependentUpon>FRMIniciar_Sesion.cs</DependentUpon>
     </EmbeddedResource>
@@ -162,8 +221,11 @@
     <EmbeddedResource Include="FRMPrincipal.resx">
       <DependentUpon>FRMPrincipal.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FRMProducto.resx">
-      <DependentUpon>FRMProducto.cs</DependentUpon>
+    <EmbeddedResource Include="FRMProducto_Lista.resx">
+      <DependentUpon>FRMProducto_Lista.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FRMProducto_Registrar.resx">
+      <DependentUpon>FRMProducto_Registrar.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FRMSplash.resx">
       <DependentUpon>FRMSplash.cs</DependentUpon>
@@ -282,6 +344,15 @@
       <Isolated>False</Isolated>
       <EmbedInteropTypes>True</EmbedInteropTypes>
     </COMReference>
+    <COMReference Include="DPFPEngXLib">
+      <Guid>{A9EFB3F6-A8C8-4684-841E-4330973057C6}</Guid>
+      <VersionMajor>1</VersionMajor>
+      <VersionMinor>0</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>tlbimp</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\ic_usuario_cambiar_password.png" />
@@ -312,6 +383,51 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\ic_iniciar_sesion_huella.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Connected Services\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ic_producto.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ic_categoria_nuevo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ic_categoria_modificar.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ic_categoria_reporte.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ic_categoria.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ic_proveedor.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ic_cliente.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ic_cliente_guardar.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ic_cliente_modificar.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ic_cliente_reporte.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ic_producto_nuevo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ic_producto_modificar.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ic_producto_reporte.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ic_codigo_barras.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

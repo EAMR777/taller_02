@@ -1,16 +1,7 @@
 ﻿using CapaRN;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-using DPFP;
-using DPFP.Verification;
-
 
 namespace SistemaDeGestion2026
 {
@@ -21,6 +12,7 @@ namespace SistemaDeGestion2026
         public aperson persona = new aperson();
         private lususis lusuario = new lususis();
         private List<lususis> listaUsuarios = new List<lususis>();
+
         public bool loginExitoso = false;
         #endregion
 
@@ -109,7 +101,7 @@ namespace SistemaDeGestion2026
             {
                 MessageBox.Show("Huella no identificada", "Información", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
+
         }
     }
 }
-
