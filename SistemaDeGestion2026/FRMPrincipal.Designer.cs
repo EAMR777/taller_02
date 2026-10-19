@@ -163,7 +163,7 @@
             // 
             // BTNPersonas
             // 
-            this.BTNPersonas.Image = global::SistemaDeGestion2026.Properties.Resources.ic_persona;
+            this.BTNPersonas.Image = ((System.Drawing.Image)(resources.GetObject("BTNPersonas.Image")));
             this.BTNPersonas.ImageFixedSize = new System.Drawing.Size(50, 50);
             this.BTNPersonas.ImagePosition = DevComponents.DotNetBar.eImagePosition.Top;
             this.BTNPersonas.Name = "BTNPersonas";
@@ -421,7 +421,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(901, 443);
+            this.ClientSize = new System.Drawing.Size(901, 441);
             this.Controls.Add(this.ribbonControl1);
             this.IsMdiContainer = true;
             this.Margin = new System.Windows.Forms.Padding(2);
