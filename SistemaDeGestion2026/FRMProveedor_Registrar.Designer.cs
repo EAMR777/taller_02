@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FRMProveedor_Registrar));
             this.GPPanelPrincipal = new DevComponents.DotNetBar.Controls.GroupPanel();
             this.TXTTelefono = new DevComponents.DotNetBar.Controls.TextBoxX();
             this.TXTDireccion = new DevComponents.DotNetBar.Controls.TextBoxX();
@@ -186,7 +187,7 @@
             this.BTNSalir.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
             this.BTNSalir.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
             this.BTNSalir.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.BTNSalir.Image = global::SistemaDeGestion2026.Properties.Resources.ic_salir;
+            this.BTNSalir.Image = ((System.Drawing.Image)(resources.GetObject("BTNSalir.Image")));
             this.BTNSalir.ImageFixedSize = new System.Drawing.Size(40, 40);
             this.BTNSalir.Location = new System.Drawing.Point(240, 123);
             this.BTNSalir.Name = "BTNSalir";
@@ -199,7 +200,7 @@
             // 
             this.BTNLimpiar.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
             this.BTNLimpiar.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
-            this.BTNLimpiar.Image = global::SistemaDeGestion2026.Properties.Resources.ic_limpiar;
+            this.BTNLimpiar.Image = ((System.Drawing.Image)(resources.GetObject("BTNLimpiar.Image")));
             this.BTNLimpiar.ImageFixedSize = new System.Drawing.Size(40, 40);
             this.BTNLimpiar.Location = new System.Drawing.Point(126, 123);
             this.BTNLimpiar.Name = "BTNLimpiar";
@@ -212,7 +213,7 @@
             // 
             this.BTNGrabar.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
             this.BTNGrabar.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
-            this.BTNGrabar.Image = global::SistemaDeGestion2026.Properties.Resources.ic_guardar;
+            this.BTNGrabar.Image = ((System.Drawing.Image)(resources.GetObject("BTNGrabar.Image")));
             this.BTNGrabar.ImageFixedSize = new System.Drawing.Size(40, 40);
             this.BTNGrabar.Location = new System.Drawing.Point(9, 123);
             this.BTNGrabar.Name = "BTNGrabar";

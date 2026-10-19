@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FRMIniciar_Sesion));
             this.TXTNombreLogin = new DevComponents.DotNetBar.Controls.TextBoxX();
             this.GPPanelPrincipal = new DevComponents.DotNetBar.Controls.GroupPanel();
             this.BTNPassword = new DevComponents.DotNetBar.ButtonX();
@@ -51,7 +52,7 @@
             this.TXTNombreLogin.Location = new System.Drawing.Point(9, 3);
             this.TXTNombreLogin.Name = "TXTNombreLogin";
             this.TXTNombreLogin.PreventEnterBeep = true;
-            this.TXTNombreLogin.Size = new System.Drawing.Size(233, 26);
+            this.TXTNombreLogin.Size = new System.Drawing.Size(233, 23);
             this.TXTNombreLogin.TabIndex = 0;
             this.TXTNombreLogin.WatermarkText = "Login ";
             // 
@@ -128,7 +129,7 @@
             this.TXTPassword.Name = "TXTPassword";
             this.TXTPassword.PasswordChar = '*';
             this.TXTPassword.PreventEnterBeep = true;
-            this.TXTPassword.Size = new System.Drawing.Size(201, 26);
+            this.TXTPassword.Size = new System.Drawing.Size(201, 23);
             this.TXTPassword.TabIndex = 1;
             this.TXTPassword.WatermarkText = "Password";
             // 
@@ -137,7 +138,7 @@
             this.BTNCancelar.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
             this.BTNCancelar.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
             this.BTNCancelar.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.BTNCancelar.Image = global::SistemaDeGestion2026.Properties.Resources.ic_salir_app;
+            this.BTNCancelar.Image = ((System.Drawing.Image)(resources.GetObject("BTNCancelar.Image")));
             this.BTNCancelar.ImageFixedSize = new System.Drawing.Size(30, 30);
             this.BTNCancelar.Location = new System.Drawing.Point(124, 67);
             this.BTNCancelar.Name = "BTNCancelar";
@@ -151,7 +152,7 @@
             // 
             this.BTNIngresar.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
             this.BTNIngresar.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
-            this.BTNIngresar.Image = global::SistemaDeGestion2026.Properties.Resources.ic_ingresar;
+            this.BTNIngresar.Image = ((System.Drawing.Image)(resources.GetObject("BTNIngresar.Image")));
             this.BTNIngresar.ImageFixedSize = new System.Drawing.Size(30, 30);
             this.BTNIngresar.Location = new System.Drawing.Point(9, 67);
             this.BTNIngresar.Name = "BTNIngresar";
@@ -164,7 +165,7 @@
             // FRMIniciar_Sesion
             // 
             this.AcceptButton = this.BTNIngresar;
-            this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.CancelButton = this.BTNCancelar;
             this.ClientSize = new System.Drawing.Size(256, 145);

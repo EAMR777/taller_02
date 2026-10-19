@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FRMModificar_Password));
             this.GPPanelPrincipal = new DevComponents.DotNetBar.Controls.GroupPanel();
             this.LBLMensaje = new DevComponents.DotNetBar.LabelX();
             this.BTNConfirmarPassword = new DevComponents.DotNetBar.ButtonX();
@@ -133,7 +134,7 @@
             this.TXTConfirmarPassword.Name = "TXTConfirmarPassword";
             this.TXTConfirmarPassword.PasswordChar = '*';
             this.TXTConfirmarPassword.PreventEnterBeep = true;
-            this.TXTConfirmarPassword.Size = new System.Drawing.Size(201, 26);
+            this.TXTConfirmarPassword.Size = new System.Drawing.Size(201, 23);
             this.TXTConfirmarPassword.TabIndex = 1;
             this.TXTConfirmarPassword.WatermarkText = "Confirmar Password";
             this.TXTConfirmarPassword.Enter += new System.EventHandler(this.TXTPassword_Enter);
@@ -165,7 +166,7 @@
             this.TXTPassword.Name = "TXTPassword";
             this.TXTPassword.PasswordChar = '*';
             this.TXTPassword.PreventEnterBeep = true;
-            this.TXTPassword.Size = new System.Drawing.Size(201, 26);
+            this.TXTPassword.Size = new System.Drawing.Size(201, 23);
             this.TXTPassword.TabIndex = 0;
             this.TXTPassword.WatermarkText = "Password";
             this.TXTPassword.TextChanged += new System.EventHandler(this.TXTPassword_TextChanged);
@@ -186,7 +187,7 @@
             this.TXTNombreLogin.Location = new System.Drawing.Point(9, 3);
             this.TXTNombreLogin.Name = "TXTNombreLogin";
             this.TXTNombreLogin.PreventEnterBeep = true;
-            this.TXTNombreLogin.Size = new System.Drawing.Size(233, 26);
+            this.TXTNombreLogin.Size = new System.Drawing.Size(233, 23);
             this.TXTNombreLogin.TabIndex = 0;
             this.TXTNombreLogin.WatermarkText = "Login ";
             // 
@@ -195,7 +196,7 @@
             this.BTNCancelar.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
             this.BTNCancelar.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
             this.BTNCancelar.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.BTNCancelar.Image = global::SistemaDeGestion2026.Properties.Resources.ic_salir_app;
+            this.BTNCancelar.Image = ((System.Drawing.Image)(resources.GetObject("BTNCancelar.Image")));
             this.BTNCancelar.ImageFixedSize = new System.Drawing.Size(30, 30);
             this.BTNCancelar.Location = new System.Drawing.Point(124, 164);
             this.BTNCancelar.Name = "BTNCancelar";
@@ -208,7 +209,7 @@
             // 
             this.BTNGuardar.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
             this.BTNGuardar.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
-            this.BTNGuardar.Image = global::SistemaDeGestion2026.Properties.Resources.ic_guardar;
+            this.BTNGuardar.Image = ((System.Drawing.Image)(resources.GetObject("BTNGuardar.Image")));
             this.BTNGuardar.ImageFixedSize = new System.Drawing.Size(30, 30);
             this.BTNGuardar.Location = new System.Drawing.Point(9, 164);
             this.BTNGuardar.Name = "BTNGuardar";
@@ -220,7 +221,7 @@
             // 
             // FRMModificar_Password
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(259, 237);
             this.Controls.Add(this.GPPanelPrincipal);

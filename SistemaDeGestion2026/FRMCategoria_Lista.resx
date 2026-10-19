@@ -129,4 +129,28 @@
   <metadata name="CMSMenu.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>17, 17</value>
   </metadata>
+  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="BTNModificar.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAACgAAAAoCAYAAACM/rhtAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
+        YQUAAAAJcEhZcwAACxIAAAsSAdLdfvwAAADRSURBVFhH7c5LDoIwFIVhFmbioA2EdjNMug3YkwNIeCQu
+        wugCEJ0BrWkcNESQ2zI6J/kTFXP5Iiz0KsamkNnX7J858i6KIAFIDUBqAFIDkBqA1ACkBiA1AKkBSA1A
+        agBSA5AagNQOB77y/NPSs6UOBd6VGlsp+zpNh1uWjVughwAfSk2dlEOdJNeSMV5xftKfKw19rkGDAl2Y
+        /ft3W6BBgGswd7+gXoH/wtwtQb0BWyGGOo67kvOz/Xn3zA19q2mE6H0BLz5g7sxNc9t+xQItimZcHDmu
+        6UAR1QAAAABJRU5ErkJggg==
+</value>
+  </data>
+  <data name="BTNRegistrar.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAACgAAAAoCAYAAACM/rhtAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
+        YQUAAAAJcEhZcwAACxIAAAsSAdLdfvwAAADRSURBVFhH7c5LDoIwFIVhFmbioA2EdjNMug3YkwNIeCQu
+        wugCEJ0BrWkcNESQ2zI6J/kTFXP5Iiz0KsamkNnX7J858i6KIAFIDUBqAFIDkBqA1ACkBiA1AKkBSA1A
+        agBSA5AagNQOB77y/NPSs6UOBd6VGlsp+zpNh1uWjVughwAfSk2dlEOdJNeSMV5xftKfKw19rkGDAl2Y
+        /ft3W6BBgGswd7+gXoH/wtwtQb0BWyGGOo67kvOz/Xn3zA19q2mE6H0BLz5g7sxNc9t+xQItimZcHDmu
+        6UAR1QAAAABJRU5ErkJggg==
+</value>
+  </data>
+  <metadata name="$this.TrayHeight" type="System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>43</value>
+  </metadata>
 </root>
