@@ -1,6 +1,12 @@
 ﻿using CapaRN;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace SistemaDeGestion2026
@@ -10,7 +16,7 @@ namespace SistemaDeGestion2026
         #region Variables
         public aususis usuario = new aususis();
         public aperson persona = new aperson();
-        private lususis lusuario = new lususis();
+        private lususis lusuario=new lususis();
         private List<lususis> listaUsuarios = new List<lususis>();
 
         public bool loginExitoso = false;
@@ -25,7 +31,7 @@ namespace SistemaDeGestion2026
 
         private void VCHuella_OnComplete(object Control, DPFP.FeatureSet FeatureSet, ref DPFP.Gui.EventHandlerStatus EventHandlerStatus)
         {
-
+            
             listaUsuarios = lusuario.Lista("causestusu=true");
 
             DPFP.Verification.Verification Ver = new DPFP.Verification.Verification();

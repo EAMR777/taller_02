@@ -1,5 +1,12 @@
 ﻿using CapaRN;
 using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace SistemaDeGestion2026
@@ -7,10 +14,10 @@ namespace SistemaDeGestion2026
     public partial class FRMIniciar_Sesion : DevComponents.DotNetBar.Office2007Form
     {
         #region Variables
-        public aususis usuario = new aususis();
-        public aperson persona = new aperson();
-        public bool loginExitoso = false;
-        public bool actualizarPassword = false;
+            public aususis usuario = new aususis();
+            public aperson persona = new aperson();
+            public bool loginExitoso = false;
+            public bool actualizarPassword = false;
         #endregion
 
         #region Constructor
@@ -24,7 +31,7 @@ namespace SistemaDeGestion2026
 
         private bool VerificarIntegridad()
         {
-            bool respuesta = true;
+            bool respuesta = true;            
 
             if (TXTNombreLogin.Text.Replace(" ", "") == "")
             {
@@ -47,7 +54,7 @@ namespace SistemaDeGestion2026
         #region Eventos
         private void BTNPassword_Click(object sender, EventArgs e)
         {
-            if (TXTPassword.PasswordChar == '*')
+            if (TXTPassword.PasswordChar=='*')
             {
                 TXTPassword.PasswordChar = '\0';
             }
@@ -56,28 +63,28 @@ namespace SistemaDeGestion2026
                 TXTPassword.PasswordChar = '*';
             }
         }
-
+     
         private void BTNCancelar_Click(object sender, EventArgs e)
         {
             this.Close();
         }
-
+       
         private void BTNIngresar_Click(object sender, EventArgs e)
         {
             if (VerificarIntegridad())
-            {
+            { 
                 usuario.causnomlog = TXTNombreLogin.Text;
                 usuario.ObtenerDatosLogin(false, TXTNombreLogin.Text);
                 persona.papscodper = usuario.fauscodper;
                 persona.ObtenerDatos();
 
                 if (usuario.causactpas)
-                {
+                {                                        
                     if (TXTPassword.Text == persona.capsnumcid)
                     {
-                        MessageBox.Show("Bienvenido " + persona.capsnomper + " " +
-                                                        persona.capsapepat + " " +
-                                                        persona.capsapemat,
+                        MessageBox.Show("Bienvenido " + persona.capsnomper + " " + 
+                                                        persona.capsapepat + " " + 
+                                                        persona.capsapemat , 
                                         "Validación", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         loginExitoso = true;
                         actualizarPassword = true;

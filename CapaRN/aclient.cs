@@ -11,99 +11,142 @@ namespace CapaRN
 	public class aclient {
 
 		#region Campos
-            private bool _caclestcli;
-            private string _caclrazcli;
-            private string _paclcodcli;
-            private string _cacldircli;
-            private string _cacltelcli;
-            private string _faclcodper;
-            private string _caclnitcli;
+            private bool _caceestcli;
+            private string _cacerazsoc;
+            private string _cacenitcli;
+            private string _pacecodcli;
+            private string _cacedircli;
+            private string _facecodper;
+            private string _cacetelcli;
             //Instancia para conexion a PostgreSQL 8.2
             private CLConexionPGSQL Conexion;
 		#endregion 
 
 		#region Propiedades
-		    public bool caclestcli
+		    public bool caceestcli
             { 
-                get{ return this._caclestcli;}
-                set{ this._caclestcli = value;}
+                get{ return this._caceestcli;}
+                set{ this._caceestcli = value;}
             } 
-		    public string caclrazcli
+		    public string cacerazsoc
             { 
-                get{ return this._caclrazcli;}
-                set{ this._caclrazcli = value;}
+                get{ return this._cacerazsoc;}
+                set{ this._cacerazsoc = value;}
             } 
-		    public string paclcodcli
+		    public string cacenitcli
             { 
-                get{ return this._paclcodcli;}
-                set{ this._paclcodcli = value;}
+                get{ return this._cacenitcli;}
+                set{ this._cacenitcli = value;}
             } 
-		    public string cacldircli
+		    public string pacecodcli
             { 
-                get{ return this._cacldircli;}
-                set{ this._cacldircli = value;}
+                get{ return this._pacecodcli;}
+                set{ this._pacecodcli = value;}
             } 
-		    public string cacltelcli
+		    public string cacedircli
             { 
-                get{ return this._cacltelcli;}
-                set{ this._cacltelcli = value;}
+                get{ return this._cacedircli;}
+                set{ this._cacedircli = value;}
             } 
-		    public string faclcodper
+		    public string facecodper
             { 
-                get{ return this._faclcodper;}
-                set{ this._faclcodper = value;}
+                get{ return this._facecodper;}
+                set{ this._facecodper = value;}
             } 
-		    public string caclnitcli
+		    public string cacetelcli
             { 
-                get{ return this._caclnitcli;}
-                set{ this._caclnitcli = value;}
+                get{ return this._cacetelcli;}
+                set{ this._cacetelcli = value;}
             } 
         #endregion
 
         #region Constructor
             public aclient()
             { 
-		        this._caclestcli = true;
-		        this._caclrazcli = "";
-		        this._paclcodcli = "";
-		        this._cacldircli = "";
-		        this._cacltelcli = "";
-		        this._faclcodper = "";
-		        this._caclnitcli = "";
-                this.Conexion = new CLConexionPGSQL();            } 
+		        this._caceestcli = true;
+		        this._cacerazsoc = "";
+		        this._cacenitcli = "";
+		        this._pacecodcli = "";
+		        this._cacedircli = "";
+		        this._facecodper = "";
+		        this._cacetelcli = "";
+                this.Conexion = new CLConexionPGSQL();            }
         #endregion
 
         #region Metodos
-            public bool ObtenerDatos() 
+        public bool ObtenerDatosNIT()
+        {
+            this.Conexion.Conectar();
+            string sql = "select " +
+                                 "caceestcli," +
+                                 "cacerazsoc," +
+                                 "cacenitcli," +
+                                 "pacecodcli," +
+                                 "cacedircli," +
+                                 "facecodper," +
+                                 "cacetelcli " +
+                         "from aclient " +
+                         "where " +
+                                "cacenitcli = @cacenitcli and caceestcli = true";
+
+
+            this.Conexion.PrepararComando(sql);
+
+            this.Conexion.AsignarParametroCadena("@cacenitcli", this._cacenitcli);
+
+            DbDataReader ResultadoConsulta = Conexion.EjecutarConsulta();
+
+            if (ResultadoConsulta.Read())
+            {
+                this._caceestcli = ResultadoConsulta.GetBoolean(0);
+                this._cacerazsoc = ResultadoConsulta.GetString(1);
+                this._cacenitcli = ResultadoConsulta.GetString(2);
+                this._pacecodcli = ResultadoConsulta.GetString(3);
+                this._cacedircli = ResultadoConsulta.GetString(4);
+                this._facecodper = ResultadoConsulta.GetString(5);
+                this._cacetelcli = ResultadoConsulta.GetString(6);
+                this.Conexion.Desconectar();
+
+                return true;
+            }
+            else
+            {
+                this.Conexion.Desconectar();
+                return false;
+            }
+        }
+
+        public bool ObtenerDatos() 
             { 
                 this.Conexion.Conectar();
 			    string sql = "select " +
-                                     "caclestcli," +
-                                     "caclrazcli," +
-                                     "paclcodcli," +
-                                     "cacldircli," +
-                                     "cacltelcli," +
-                                     "faclcodper," +
-                                     "caclnitcli " + 
+                                     "caceestcli," +
+                                     "cacerazsoc," +
+                                     "cacenitcli," +
+                                     "pacecodcli," +
+                                     "cacedircli," +
+                                     "facecodper," +
+                                     "cacetelcli " + 
                              "from aclient " +
                              "where "+
-                                    "paclcodcli = @paclcodcli";
+                                    "pacecodcli = @pacecodcli";
+            
 
-                this.Conexion.PrepararComando(sql);
+            this.Conexion.PrepararComando(sql);
 
-                this.Conexion.AsignarParametroCadena("@paclcodcli",this._paclcodcli);
+                this.Conexion.AsignarParametroCadena("@pacecodcli",this._pacecodcli);
 
                 DbDataReader ResultadoConsulta = Conexion.EjecutarConsulta();
 
                 if (ResultadoConsulta.Read())
                 {
-                    this._caclestcli=ResultadoConsulta.GetBoolean(0);
-                    this._caclrazcli=ResultadoConsulta.GetString(1);
-                    this._paclcodcli=ResultadoConsulta.GetString(2);
-                    this._cacldircli=ResultadoConsulta.GetString(3);
-                    this._cacltelcli=ResultadoConsulta.GetString(4);
-                    this._faclcodper=ResultadoConsulta.GetString(5);
-                    this._caclnitcli=ResultadoConsulta.GetString(6);
+                    this._caceestcli=ResultadoConsulta.GetBoolean(0);
+                    this._cacerazsoc=ResultadoConsulta.GetString(1);
+                    this._cacenitcli=ResultadoConsulta.GetString(2);
+                    this._pacecodcli=ResultadoConsulta.GetString(3);
+                    this._cacedircli=ResultadoConsulta.GetString(4);
+                    this._facecodper=ResultadoConsulta.GetString(5);
+                    this._cacetelcli=ResultadoConsulta.GetString(6);
                     this.Conexion.Desconectar();
 
                     return true;
@@ -114,24 +157,69 @@ namespace CapaRN
                     return false;
                 }
             }
-            public bool VerificarExistencia()
+        public bool ObtenerDatosNit(bool modificar, string nit)
+        {
+            this.Conexion.Conectar();
+            string sql = "select " +
+                                 "caceestcli," +
+                                 "cacerazsoc," +
+                                 "cacenitcli," +
+                                 "pacecodcli," +
+                                 "cacedircli," +
+                                 "facecodper," +
+                                 "cacetelcli " +
+                         "from aclient " +
+                         "where " +
+                                "cacenitcli = @cacenitcli";
+            if (modificar)
+            {
+                sql += " and cacenitcli !='" + nit + "'";
+            }
+
+            this.Conexion.PrepararComando(sql);
+
+            this.Conexion.AsignarParametroCadena("@cacenitcli", this._cacenitcli);
+
+
+            DbDataReader ResultadoConsulta = Conexion.EjecutarConsulta();
+
+            if (ResultadoConsulta.Read())
+            {
+                this._caceestcli = ResultadoConsulta.GetBoolean(0);
+                this._cacerazsoc = ResultadoConsulta.GetString(1);
+                this._cacenitcli = ResultadoConsulta.GetString(2);
+                this._pacecodcli = ResultadoConsulta.GetString(3);
+                this._cacedircli = ResultadoConsulta.GetString(4);
+                this._facecodper = ResultadoConsulta.GetString(5);
+                this._cacetelcli = ResultadoConsulta.GetString(6);
+                this.Conexion.Desconectar();
+
+                return true;
+            }
+            else
+            {
+                this.Conexion.Desconectar();
+                return false;
+            }
+        }
+        public bool VerificarExistencia()
             { 
                 this.Conexion.Conectar(); 
 			    string sql = "select " + 
-                                     "caclestcli," +
-                                     "caclrazcli," +
-                                     "paclcodcli," +
-                                     "cacldircli," +
-                                     "cacltelcli," +
-                                     "faclcodper," +
-                                     "caclnitcli " + 
+                                     "caceestcli," +
+                                     "cacerazsoc," +
+                                     "cacenitcli," +
+                                     "pacecodcli," +
+                                     "cacedircli," +
+                                     "facecodper," +
+                                     "cacetelcli " + 
                              "from aclient " +
                              "where " +
-                                    "paclcodcli = @paclcodcli";
+                                    "pacecodcli = @pacecodcli";
  
                 this.Conexion.PrepararComando(sql); 
 
-                this.Conexion.AsignarParametroCadena("@paclcodcli",this._paclcodcli);
+                this.Conexion.AsignarParametroCadena("@pacecodcli",this._pacecodcli);
 
                 DbDataReader ResultadoConsulta = Conexion.EjecutarConsulta();
 
@@ -158,33 +246,33 @@ namespace CapaRN
                 { 
                     this.Conexion.Conectar();
 			        string sql = "insert into aclient (" +
-                                                       "caclestcli," +
-                                                       "caclrazcli," +
-                                                       "paclcodcli," +
-                                                       "cacldircli," +
-                                                       "cacltelcli," +
-                                                       "faclcodper," +
-                                                       "caclnitcli" +
+                                                       "caceestcli," +
+                                                       "cacerazsoc," +
+                                                       "cacenitcli," +
+                                                       "pacecodcli," +
+                                                       "cacedircli," +
+                                                       "facecodper," +
+                                                       "cacetelcli" +
                                                        ") " +
 	                             "values (" + 
-                                          "@caclestcli," +
-                                          "@caclrazcli," +
-                                          "@paclcodcli," +
-                                          "@cacldircli," +
-                                          "@cacltelcli," +
-                                          "@faclcodper," +
-                                          "@caclnitcli" +
+                                          "@caceestcli," +
+                                          "@cacerazsoc," +
+                                          "@cacenitcli," +
+                                          "@pacecodcli," +
+                                          "@cacedircli," +
+                                          "@facecodper," +
+                                          "@cacetelcli" +
                                                        ")";
 
                     this.Conexion.PrepararComando(sql);
 
-                    this.Conexion.AsignarParametroLogico("@caclestcli",this._caclestcli);
-                    this.Conexion.AsignarParametroCadena("@caclrazcli",this._caclrazcli);
-                    this.Conexion.AsignarParametroCadena("@paclcodcli",this._paclcodcli);
-                    this.Conexion.AsignarParametroCadena("@cacldircli",this._cacldircli);
-                    this.Conexion.AsignarParametroCadena("@cacltelcli",this._cacltelcli);
-                    this.Conexion.AsignarParametroCadena("@faclcodper",this._faclcodper);
-                    this.Conexion.AsignarParametroCadena("@caclnitcli",this._caclnitcli);
+                    this.Conexion.AsignarParametroLogico("@caceestcli",this._caceestcli);
+                    this.Conexion.AsignarParametroCadena("@cacerazsoc",this._cacerazsoc);
+                    this.Conexion.AsignarParametroCadena("@cacenitcli",this._cacenitcli);
+                    this.Conexion.AsignarParametroCadena("@pacecodcli",this._pacecodcli);
+                    this.Conexion.AsignarParametroCadena("@cacedircli",this._cacedircli);
+                    this.Conexion.AsignarParametroCadena("@facecodper",this._facecodper);
+                    this.Conexion.AsignarParametroCadena("@cacetelcli",this._cacetelcli);
 
                     this.Conexion.EjecutarTransaccion();
                     this.Conexion.Desconectar();
@@ -202,24 +290,24 @@ namespace CapaRN
                 { 
                     this.Conexion.Conectar();
 			        string sql = "update aclient set " +
-                                                     "caclestcli = @caclestcli, " +
-                                                     "caclrazcli = @caclrazcli, " +
-                                                     "cacldircli = @cacldircli, " +
-                                                     "cacltelcli = @cacltelcli, " +
-                                                     "faclcodper = @faclcodper, " +
-                                                     "caclnitcli = @caclnitcli" +
+                                                     "caceestcli = @caceestcli, " +
+                                                     "cacerazsoc = @cacerazsoc, " +
+                                                     "cacenitcli = @cacenitcli, " +
+                                                     "cacedircli = @cacedircli, " +
+                                                     "facecodper = @facecodper, " +
+                                                     "cacetelcli = @cacetelcli" +
                                  " where " +
-                                        "paclcodcli = @paclcodcli";
+                                        "pacecodcli = @pacecodcli";
  
                 this.Conexion.PrepararComando(sql); 
 
-                    this.Conexion.AsignarParametroLogico("@caclestcli",this._caclestcli);
-                    this.Conexion.AsignarParametroCadena("@caclrazcli",this._caclrazcli);
-                    this.Conexion.AsignarParametroCadena("@paclcodcli",this._paclcodcli);
-                    this.Conexion.AsignarParametroCadena("@cacldircli",this._cacldircli);
-                    this.Conexion.AsignarParametroCadena("@cacltelcli",this._cacltelcli);
-                    this.Conexion.AsignarParametroCadena("@faclcodper",this._faclcodper);
-                    this.Conexion.AsignarParametroCadena("@caclnitcli",this._caclnitcli);
+                    this.Conexion.AsignarParametroLogico("@caceestcli",this._caceestcli);
+                    this.Conexion.AsignarParametroCadena("@cacerazsoc",this._cacerazsoc);
+                    this.Conexion.AsignarParametroCadena("@cacenitcli",this._cacenitcli);
+                    this.Conexion.AsignarParametroCadena("@pacecodcli",this._pacecodcli);
+                    this.Conexion.AsignarParametroCadena("@cacedircli",this._cacedircli);
+                    this.Conexion.AsignarParametroCadena("@facecodper",this._facecodper);
+                    this.Conexion.AsignarParametroCadena("@cacetelcli",this._cacetelcli);
 
                     this.Conexion.EjecutarTransaccion();
                     this.Conexion.Desconectar();
@@ -232,13 +320,13 @@ namespace CapaRN
                 List<aclient> ListaResultado = new List<aclient>();
                 this.Conexion.Conectar(); 
 			    string sql = "select " + 
-                                     "caclestcli," +
-                                     "caclrazcli," +
-                                     "paclcodcli," +
-                                     "cacldircli," +
-                                     "cacltelcli," +
-                                     "faclcodper," +
-                                     "caclnitcli " + 
+                                     "caceestcli," +
+                                     "cacerazsoc," +
+                                     "cacenitcli," +
+                                     "pacecodcli," +
+                                     "cacedircli," +
+                                     "facecodper," +
+                                     "cacetelcli " + 
                              "from aclient " ;
  
                 if (where.Replace(" ", "") != "")
@@ -255,13 +343,13 @@ namespace CapaRN
                     while (ResultadoConsulta.Read())
                     {
                           aclient Auxiliar = new aclient();
-                          Auxiliar.caclestcli = ResultadoConsulta.GetBoolean(0);
-                          Auxiliar.caclrazcli = ResultadoConsulta.GetString(1);
-                          Auxiliar.paclcodcli = ResultadoConsulta.GetString(2);
-                          Auxiliar.cacldircli = ResultadoConsulta.GetString(3);
-                          Auxiliar.cacltelcli = ResultadoConsulta.GetString(4);
-                          Auxiliar.faclcodper = ResultadoConsulta.GetString(5);
-                          Auxiliar.caclnitcli = ResultadoConsulta.GetString(6);
+                          Auxiliar.caceestcli = ResultadoConsulta.GetBoolean(0);
+                          Auxiliar.cacerazsoc = ResultadoConsulta.GetString(1);
+                          Auxiliar.cacenitcli = ResultadoConsulta.GetString(2);
+                          Auxiliar.pacecodcli = ResultadoConsulta.GetString(3);
+                          Auxiliar.cacedircli = ResultadoConsulta.GetString(4);
+                          Auxiliar.facecodper = ResultadoConsulta.GetString(5);
+                          Auxiliar.cacetelcli = ResultadoConsulta.GetString(6);
                           ListaResultado.Add(Auxiliar);
                     }
 

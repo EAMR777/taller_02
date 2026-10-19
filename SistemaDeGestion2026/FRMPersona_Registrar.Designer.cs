@@ -251,6 +251,7 @@
             this.BTNLimpiar.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
             this.BTNLimpiar.TabIndex = 12;
             this.BTNLimpiar.Text = "&Limpiar";
+            this.BTNLimpiar.Click += new System.EventHandler(this.BTNLimpiar_Click);
             // 
             // BTNGrabar
             // 
@@ -269,8 +270,6 @@
             // TXTCI
             // 
             this.TXTCI.BackColor = System.Drawing.Color.White;
-            this.BLTAyuda.SetBalloonCaption(this.TXTCI, "Ayuda");
-            this.BLTAyuda.SetBalloonText(this.TXTCI, "Número de documento de identidad de la persona");
             // 
             // 
             // 
@@ -282,7 +281,7 @@
             this.TXTCI.Location = new System.Drawing.Point(9, 35);
             this.TXTCI.Name = "TXTCI";
             this.TXTCI.PreventEnterBeep = true;
-            this.TXTCI.Size = new System.Drawing.Size(149, 26);
+            this.TXTCI.Size = new System.Drawing.Size(149, 23);
             this.TXTCI.TabIndex = 0;
             this.TXTCI.WatermarkText = "CI";
             this.TXTCI.Enter += new System.EventHandler(this.TXTCI_Enter);
@@ -291,8 +290,6 @@
             // TXTApellidoPaterno
             // 
             this.TXTApellidoPaterno.BackColor = System.Drawing.Color.White;
-            this.BLTAyuda.SetBalloonCaption(this.TXTApellidoPaterno, "Ayuda");
-            this.BLTAyuda.SetBalloonText(this.TXTApellidoPaterno, "Apellido Paterno de la persona");
             // 
             // 
             // 
@@ -304,7 +301,7 @@
             this.TXTApellidoPaterno.Location = new System.Drawing.Point(9, 67);
             this.TXTApellidoPaterno.Name = "TXTApellidoPaterno";
             this.TXTApellidoPaterno.PreventEnterBeep = true;
-            this.TXTApellidoPaterno.Size = new System.Drawing.Size(149, 26);
+            this.TXTApellidoPaterno.Size = new System.Drawing.Size(149, 23);
             this.TXTApellidoPaterno.TabIndex = 2;
             this.TXTApellidoPaterno.WatermarkText = "Apellido Paterno";
             this.TXTApellidoPaterno.Enter += new System.EventHandler(this.TXTCI_Enter);
@@ -313,8 +310,6 @@
             // TXTDireccion
             // 
             this.TXTDireccion.BackColor = System.Drawing.Color.White;
-            this.BLTAyuda.SetBalloonCaption(this.TXTDireccion, "Ayuda");
-            this.BLTAyuda.SetBalloonText(this.TXTDireccion, "Dirección del domicilio de la persona");
             // 
             // 
             // 
@@ -335,8 +330,6 @@
             // TXTCorreoElectronico
             // 
             this.TXTCorreoElectronico.BackColor = System.Drawing.Color.White;
-            this.BLTAyuda.SetBalloonCaption(this.TXTCorreoElectronico, "Ayuda");
-            this.BLTAyuda.SetBalloonText(this.TXTCorreoElectronico, "Correo Electrónico de la persona");
             // 
             // 
             // 
@@ -347,7 +340,7 @@
             this.TXTCorreoElectronico.Location = new System.Drawing.Point(98, 131);
             this.TXTCorreoElectronico.Name = "TXTCorreoElectronico";
             this.TXTCorreoElectronico.PreventEnterBeep = true;
-            this.TXTCorreoElectronico.Size = new System.Drawing.Size(215, 26);
+            this.TXTCorreoElectronico.Size = new System.Drawing.Size(215, 23);
             this.TXTCorreoElectronico.TabIndex = 6;
             this.TXTCorreoElectronico.WatermarkText = "Correo Electrónico";
             this.TXTCorreoElectronico.Enter += new System.EventHandler(this.TXTCI_Enter);
@@ -356,8 +349,6 @@
             // TXTCelular
             // 
             this.TXTCelular.BackColor = System.Drawing.Color.White;
-            this.BLTAyuda.SetBalloonCaption(this.TXTCelular, "Ayuda");
-            this.BLTAyuda.SetBalloonText(this.TXTCelular, "Número de Celular de la persona");
             // 
             // 
             // 
@@ -369,17 +360,16 @@
             this.TXTCelular.Location = new System.Drawing.Point(10, 131);
             this.TXTCelular.Name = "TXTCelular";
             this.TXTCelular.PreventEnterBeep = true;
-            this.TXTCelular.Size = new System.Drawing.Size(82, 26);
+            this.TXTCelular.Size = new System.Drawing.Size(82, 23);
             this.TXTCelular.TabIndex = 5;
             this.TXTCelular.WatermarkText = "Celular";
+            this.TXTCelular.TextChanged += new System.EventHandler(this.TXTCelular_TextChanged);
             this.TXTCelular.Enter += new System.EventHandler(this.TXTCI_Enter);
             this.TXTCelular.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TXTCelular_KeyDown);
             // 
             // TXTNombres
             // 
             this.TXTNombres.BackColor = System.Drawing.Color.White;
-            this.BLTAyuda.SetBalloonCaption(this.TXTNombres, "Ayuda");
-            this.BLTAyuda.SetBalloonText(this.TXTNombres, "Nombre de la persona");
             // 
             // 
             // 
@@ -391,7 +381,7 @@
             this.TXTNombres.Location = new System.Drawing.Point(9, 99);
             this.TXTNombres.Name = "TXTNombres";
             this.TXTNombres.PreventEnterBeep = true;
-            this.TXTNombres.Size = new System.Drawing.Size(304, 26);
+            this.TXTNombres.Size = new System.Drawing.Size(304, 23);
             this.TXTNombres.TabIndex = 4;
             this.TXTNombres.WatermarkText = "Nombres";
             this.TXTNombres.Enter += new System.EventHandler(this.TXTCI_Enter);
@@ -400,8 +390,6 @@
             // TXTApellidoMaterno
             // 
             this.TXTApellidoMaterno.BackColor = System.Drawing.Color.White;
-            this.BLTAyuda.SetBalloonCaption(this.TXTApellidoMaterno, "Ayuda");
-            this.BLTAyuda.SetBalloonText(this.TXTApellidoMaterno, "Apellido Materno de la persona");
             // 
             // 
             // 
@@ -413,7 +401,7 @@
             this.TXTApellidoMaterno.Location = new System.Drawing.Point(164, 67);
             this.TXTApellidoMaterno.Name = "TXTApellidoMaterno";
             this.TXTApellidoMaterno.PreventEnterBeep = true;
-            this.TXTApellidoMaterno.Size = new System.Drawing.Size(149, 26);
+            this.TXTApellidoMaterno.Size = new System.Drawing.Size(149, 23);
             this.TXTApellidoMaterno.TabIndex = 3;
             this.TXTApellidoMaterno.WatermarkText = "Apellido Materno";
             this.TXTApellidoMaterno.Enter += new System.EventHandler(this.TXTCI_Enter);
@@ -426,8 +414,6 @@
             // 
             this.DTINacimiento.BackgroundStyle.Class = "DateTimeInputBackground";
             this.DTINacimiento.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.BLTAyuda.SetBalloonCaption(this.DTINacimiento, "Ayuda");
-            this.BLTAyuda.SetBalloonText(this.DTINacimiento, "Fecha de nacimiento de la persona");
             this.DTINacimiento.ButtonDropDown.Shortcut = DevComponents.DotNetBar.eShortcut.AltDown;
             this.DTINacimiento.ButtonDropDown.Visible = true;
             this.DTINacimiento.IsPopupCalendarOpen = false;
@@ -462,7 +448,7 @@
             this.DTINacimiento.MonthCalendar.NavigationBackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
             this.DTINacimiento.MonthCalendar.TodayButtonVisible = true;
             this.DTINacimiento.Name = "DTINacimiento";
-            this.DTINacimiento.Size = new System.Drawing.Size(149, 26);
+            this.DTINacimiento.Size = new System.Drawing.Size(149, 23);
             this.DTINacimiento.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
             this.DTINacimiento.TabIndex = 1;
             this.DTINacimiento.WatermarkText = "Nacimiento";
@@ -473,8 +459,6 @@
             // 
             // 
             this.SWBSexo.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.BLTAyuda.SetBalloonCaption(this.SWBSexo, "Ayuda ");
-            this.BLTAyuda.SetBalloonText(this.SWBSexo, "Sexo de la persona");
             this.SWBSexo.Location = new System.Drawing.Point(164, 3);
             this.SWBSexo.Name = "SWBSexo";
             this.SWBSexo.OffBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
@@ -495,8 +479,6 @@
             // 
             // 
             this.SWBEstado.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.BLTAyuda.SetBalloonCaption(this.SWBEstado, "Ayuda");
-            this.BLTAyuda.SetBalloonText(this.SWBEstado, "Estado de la persona");
             this.SWBEstado.Location = new System.Drawing.Point(9, 3);
             this.SWBEstado.Name = "SWBEstado";
             this.SWBEstado.OffBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
@@ -519,7 +501,7 @@
             // FRMPersona_Registrar
             // 
             this.AcceptButton = this.BTNGrabar;
-            this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.CancelButton = this.BTNSalir;
             this.ClientSize = new System.Drawing.Size(703, 323);

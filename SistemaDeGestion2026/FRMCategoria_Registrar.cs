@@ -1,6 +1,4 @@
-﻿using AForge.Video.DirectShow;
-using CapaRN;
-using SistemaDeGestion2026.Properties;
+﻿using CapaRN;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -21,11 +19,6 @@ namespace SistemaDeGestion2026
         public bool modificar = false;
         public String codCatMod = "";
         public bool actualizar = false;
-        //Variables para la camara
-        /*private FilterInfoCollection CaptureDevice; // list of webcam
-        private VideoCaptureDevice FinalFrame;
-        private bool TieneFoto = false;
-        */
         #endregion
 
         #region Constructor
@@ -34,39 +27,39 @@ namespace SistemaDeGestion2026
             InitializeComponent();
         }
         #endregion
-
-        #region Metodos
-        private bool VerificarIntegridad()
-        {
-            bool respuesta = true;
-            acatpro categoria2 = new acatpro();
-            
-
-            
-            if (TXTCategoriaProductoNombre.Text.Replace(" ", "") == "")
-            {
-                MessageBox.Show("Introduzca el NOMBRE de la categoría", "Validación", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                TXTCategoriaProductoNombre.Focus();
-                respuesta = false;
-            }
-            return respuesta;
-        }
-        private void LimpiarCasillas()
-        {
-            SWBCategoriaProductoEstadoStock.Value = true;
-            TXTCategoriaProductoNombre.Text = "";
-        }
         private void JalarDatos()
         {
             categoria.pacpcodcat = this.codCatMod;
             categoria.ObtenerDatos();
-            SWBCategoriaProductoEstadoStock.Value = categoria.cacpestcat;
-            TXTCategoriaProductoNombre.Text = categoria.cacpnomcat;
+            SWBEstado.Value = categoria.cacpestcat;
+            TXTNombre.Text = categoria.cacpnomcat;
         }
-        #endregion
 
-        #region Eventos
-        #endregion
+
+        private void FRMCategoria_Registrar_Load(object sender, EventArgs e)
+        {
+            if (this.modificar)
+            {
+                JalarDatos();
+                BTNGrabar.Text = "&Modificar";
+                this.Text = "Modificar Categoria";
+                GPPanelPrincipal.Text = "Modificar Categoria";
+                TXTNombre.Focus();
+            }
+            else
+            {
+                LimpiarCasillas();
+                BTNGrabar.Text = "&Guardar";
+                this.Text = "Registrar Categoria";
+                GPPanelPrincipal.Text = "Registrar Categoria";
+                TXTNombre.Focus();
+            }
+        }
+        private void LimpiarCasillas()
+        {
+            TXTNombre.Text = "";
+            SWBEstado.Value = true;
+        }
 
         private void BTNGrabar_Click(object sender, EventArgs e)
         {
@@ -80,45 +73,34 @@ namespace SistemaDeGestion2026
                     correlativo.pxnctipcor = "acatpro";
                     if (correlativo.ObtenerSiguiente())
                     {
-                        categoria.pacpcodcat = correlativo.pxnctipcor + "-" +
-                                                correlativo.cxncnumcor.ToString("D12");
+                        categoria.pacpcodcat= correlativo.pxnctipcor + "-" +
+                                             correlativo.cxncnumcor.ToString("D12");
                     }
                 }
                 else
                 {
                     categoria.pacpcodcat = this.codCatMod;
                 }
-                categoria.cacpestcat = SWBCategoriaProductoEstadoStock.Value;
-                categoria.cacpnomcat = TXTCategoriaProductoNombre.Text;
-
-                //Fotografia del producto
-                /*if (TieneFoto)
-                {
-                    producto.capdfotpro = MetodosGenerales.ConvertImageToBase64String(PCBFotografia.Image);
-                }
-                else
-                {
-                    producto.capdfotpro = "";
-                }
-                */
+                categoria.cacpnomcat = TXTNombre.Text;
+                categoria.cacpestcat = SWBEstado.Value;
+               
 
                 if (!this.modificar)
                 {
                     if (categoria.Grabar())
                     {
-                        MessageBox.Show("Categoría guardada correctamente!!",
+                        MessageBox.Show("Categoria guardada correctamente!!",
                                         "Mensaje",
                                         MessageBoxButtons.OK,
                                         MessageBoxIcon.Information);
                         LimpiarCasillas();
                         this.actualizar = true;
                         this.FormClosing -= FRMCategoria_Registrar_FormClosing;
-                        //ApagarCamara();
                         this.Close();
                     }
                     else
                     {
-                        MessageBox.Show("Categoría no se pudo guardar!!",
+                        MessageBox.Show("Categoria no se pudo guardar!!",
                                         "Error",
                                         MessageBoxButtons.OK,
                                         MessageBoxIcon.Warning);
@@ -128,19 +110,19 @@ namespace SistemaDeGestion2026
                 {
                     if (categoria.Modificar())
                     {
-                        MessageBox.Show("Categoría modificada correctamente!!",
+                        MessageBox.Show("Categoria modificada correctamente!!",
                                         "Mensaje",
                                         MessageBoxButtons.OK,
                                         MessageBoxIcon.Information);
                         LimpiarCasillas();
                         this.actualizar = true;
                         this.FormClosing -= FRMCategoria_Registrar_FormClosing;
-                        //ApagarCamara();
+                     
                         this.Close();
                     }
                     else
                     {
-                        MessageBox.Show("Categoría no se pudo modificar!!",
+                        MessageBox.Show("Categoria no se pudo modificar!!",
                                             "Error",
                                             MessageBoxButtons.OK,
                                             MessageBoxIcon.Warning);
@@ -148,54 +130,47 @@ namespace SistemaDeGestion2026
                 }
             }
         }
-
-        private void BTNSalir_Click(object sender, EventArgs e)
+        private bool VerificarIntegridad()
         {
-            this.Close();
+            bool respuesta = true;
+
+            acatpro categoria2 = new acatpro();
+            categoria2.cacpnomcat = TXTNombre.Text;
+
+            if (TXTNombre.Text.Replace(" ", "") == "")
+            {
+                MessageBox.Show("Introduzca el nombre de la categoria", "Validación", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                TXTNombre.Focus();
+                respuesta = false;
+            }
+            else if (categoria2.ObtenerDatosNombre(modificar, categoria.cacpnomcat))
+            {
+                MessageBox.Show("Ya existe una categoria con este nombre", "Validación", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                TXTNombre.Focus();
+                respuesta = false;
+            }
+            
+
+
+            return respuesta;
         }
 
         private void FRMCategoria_Registrar_FormClosing(object sender, FormClosingEventArgs e)
         {
             if (MessageBox.Show("¿Está seguro que desea cerrar el formulario?",
-                                "Pregunta",
-                                MessageBoxButtons.YesNo,
-                                MessageBoxIcon.Question,
-                                MessageBoxDefaultButton.Button2) == DialogResult.No)
+                               "Pregunta",
+                               MessageBoxButtons.YesNo,
+                               MessageBoxIcon.Question,
+                               MessageBoxDefaultButton.Button2) == DialogResult.No)
             {
                 e.Cancel = true;
             }
-            else
-            {
-                //ApagarCamara();
-            }
+            
         }
 
-        private void FRMCategoria_Registrar_Load(object sender, EventArgs e)
-        {
-            if (this.modificar)
-            {
-                JalarDatos();
-                BTNGrabar.Text = "&Modificar";
-                this.Text = "Modificar Categoría";
-                GPPanelPrincipal.Text = "Modificar Categoría";
-                TXTCategoriaProductoNombre.Focus();
-            }
-            else
-            {
-                LimpiarCasillas();
-                BTNGrabar.Text = "&Guardar";
-                this.Text = "Registrar Categoría";
-                GPPanelPrincipal.Text = "Registrar Categoría";
-                TXTCategoriaProductoNombre.Focus();
-            }
-        }
+      
 
-        private void BTNLimpiar_Click(object sender, EventArgs e)
-        {
-            LimpiarCasillas();
-        }
-
-        private void TXTCategoriaProductoNombre_KeyDown(object sender, KeyEventArgs e)
+        private void TXTNombre_KeyDown(object sender, KeyEventArgs e)
         {
             bool teclaValida = false;
 
@@ -212,6 +187,16 @@ namespace SistemaDeGestion2026
             {
                 e.SuppressKeyPress = true;
             }
+        }
+
+        private void SWBEstado_ValueChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void TXTNombre_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

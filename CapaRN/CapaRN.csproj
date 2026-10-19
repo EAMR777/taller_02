@@ -9,9 +9,10 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>CapaRN</RootNamespace>
     <AssemblyName>CapaRN</AssemblyName>
-    <TargetFrameworkVersion>v4.6.2</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <Deterministic>true</Deterministic>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -44,11 +45,16 @@
   <ItemGroup>
     <Compile Include="acatpro.cs" />
     <Compile Include="aclient.cs" />
+    <Compile Include="aiteven.cs" />
     <Compile Include="aperson.cs" />
     <Compile Include="AppConfWriter.cs" />
     <Compile Include="aproduc.cs" />
     <Compile Include="aprovee.cs" />
     <Compile Include="aususis.cs" />
+    <Compile Include="lclient.cs" />
+    <Compile Include="liteven.cs" />
+    <Compile Include="lproduc.cs" />
+    <Compile Include="lprovee.cs" />
     <Compile Include="lususis.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="xgeneral.cs" />

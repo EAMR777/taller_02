@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FRMPersona_Lista));
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
@@ -94,6 +95,7 @@
             this.EPNOpciones.TitleStyle.ForeColor.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelText;
             this.EPNOpciones.TitleStyle.GradientAngle = 90;
             this.EPNOpciones.TitleText = "Menú";
+            this.EPNOpciones.Click += new System.EventHandler(this.EPNOpciones_Click);
             // 
             // BTNReporte
             // 
@@ -116,7 +118,7 @@
             this.BTNModificar.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
             this.BTNModificar.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
             this.BTNModificar.Dock = System.Windows.Forms.DockStyle.Top;
-            this.BTNModificar.Image = global::SistemaDeGestion2026.Properties.Resources.ic_persona_modificar;
+            this.BTNModificar.Image = ((System.Drawing.Image)(resources.GetObject("BTNModificar.Image")));
             this.BTNModificar.ImageFixedSize = new System.Drawing.Size(60, 60);
             this.BTNModificar.ImagePosition = DevComponents.DotNetBar.eImagePosition.Top;
             this.BTNModificar.Location = new System.Drawing.Point(0, 143);
@@ -132,7 +134,7 @@
             this.BTNRegistrar.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
             this.BTNRegistrar.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
             this.BTNRegistrar.Dock = System.Windows.Forms.DockStyle.Top;
-            this.BTNRegistrar.Image = global::SistemaDeGestion2026.Properties.Resources.ic_persona_nuevo;
+            this.BTNRegistrar.Image = ((System.Drawing.Image)(resources.GetObject("BTNRegistrar.Image")));
             this.BTNRegistrar.ImageFixedSize = new System.Drawing.Size(60, 60);
             this.BTNRegistrar.ImagePosition = DevComponents.DotNetBar.eImagePosition.Top;
             this.BTNRegistrar.Location = new System.Drawing.Point(0, 32);
@@ -169,6 +171,7 @@
             this.EPNFiltrar.TitleStyle.ForeColor.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelText;
             this.EPNFiltrar.TitleStyle.GradientAngle = 90;
             this.EPNFiltrar.TitleText = "Filtrar";
+            this.EPNFiltrar.Click += new System.EventHandler(this.EPNFiltrar_Click);
             // 
             // BTNFiltrar
             // 
@@ -197,7 +200,7 @@
             this.TXTFiltrar.Location = new System.Drawing.Point(93, 41);
             this.TXTFiltrar.Name = "TXTFiltrar";
             this.TXTFiltrar.PreventEnterBeep = true;
-            this.TXTFiltrar.Size = new System.Drawing.Size(196, 26);
+            this.TXTFiltrar.Size = new System.Drawing.Size(196, 23);
             this.TXTFiltrar.TabIndex = 5;
             this.TXTFiltrar.WatermarkText = "Datos a buscar...";
             this.TXTFiltrar.Enter += new System.EventHandler(this.TXTFiltrar_Enter);
@@ -216,7 +219,7 @@
             this.IINFilas.MinValue = 0;
             this.IINFilas.Name = "IINFilas";
             this.IINFilas.ShowUpDown = true;
-            this.IINFilas.Size = new System.Drawing.Size(80, 26);
+            this.IINFilas.Size = new System.Drawing.Size(80, 23);
             this.IINFilas.TabIndex = 4;
             this.IINFilas.Value = 50;
             // 
@@ -274,6 +277,7 @@
             this.DTGLista.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.DTGLista.Size = new System.Drawing.Size(970, 375);
             this.DTGLista.TabIndex = 8;
+            this.DTGLista.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DTGLista_CellContentClick);
             this.DTGLista.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DTGLista_CellDoubleClick);
             // 
             // Column1
@@ -369,34 +373,34 @@
             this.eliminarToolStripMenuItem,
             this.habilitarToolStripMenuItem});
             this.CMSMenu.Name = "CMSMenu";
-            this.CMSMenu.Size = new System.Drawing.Size(146, 76);
+            this.CMSMenu.Size = new System.Drawing.Size(128, 70);
             this.CMSMenu.Opening += new System.ComponentModel.CancelEventHandler(this.CMSMenu_Opening);
             // 
             // modificarToolStripMenuItem
             // 
             this.modificarToolStripMenuItem.Name = "modificarToolStripMenuItem";
-            this.modificarToolStripMenuItem.Size = new System.Drawing.Size(145, 24);
+            this.modificarToolStripMenuItem.Size = new System.Drawing.Size(127, 22);
             this.modificarToolStripMenuItem.Text = "&Modificar";
             this.modificarToolStripMenuItem.Click += new System.EventHandler(this.modificarToolStripMenuItem_Click);
             // 
             // eliminarToolStripMenuItem
             // 
             this.eliminarToolStripMenuItem.Name = "eliminarToolStripMenuItem";
-            this.eliminarToolStripMenuItem.Size = new System.Drawing.Size(145, 24);
+            this.eliminarToolStripMenuItem.Size = new System.Drawing.Size(127, 22);
             this.eliminarToolStripMenuItem.Text = "&Inhabilitar";
             this.eliminarToolStripMenuItem.Click += new System.EventHandler(this.eliminarToolStripMenuItem_Click);
             // 
             // habilitarToolStripMenuItem
             // 
             this.habilitarToolStripMenuItem.Name = "habilitarToolStripMenuItem";
-            this.habilitarToolStripMenuItem.Size = new System.Drawing.Size(145, 24);
+            this.habilitarToolStripMenuItem.Size = new System.Drawing.Size(127, 22);
             this.habilitarToolStripMenuItem.Text = "&Habilitar";
             this.habilitarToolStripMenuItem.Click += new System.EventHandler(this.habilitarToolStripMenuItem_Click);
             // 
             // FRMPersona_Lista
             // 
             this.AcceptButton = this.EPNFiltrar;
-            this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1064, 448);
             this.Controls.Add(this.DTGLista);

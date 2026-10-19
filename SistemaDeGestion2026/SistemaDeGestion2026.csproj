@@ -8,10 +8,11 @@
     <OutputType>WinExe</OutputType>
     <RootNamespace>SistemaDeGestion2026</RootNamespace>
     <AssemblyName>SistemaDeGestion2026</AssemblyName>
-    <TargetFrameworkVersion>v4.6.2</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <Deterministic>true</Deterministic>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -83,6 +84,12 @@
     <Compile Include="FRMCategoria_Registrar.Designer.cs">
       <DependentUpon>FRMCategoria_Registrar.cs</DependentUpon>
     </Compile>
+    <Compile Include="FRMCliente_Buscar.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FRMCliente_Buscar.Designer.cs">
+      <DependentUpon>FRMCliente_Buscar.cs</DependentUpon>
+    </Compile>
     <Compile Include="FRMCliente_Lista.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -149,6 +156,12 @@
     <Compile Include="FRMPrincipal.Designer.cs">
       <DependentUpon>FRMPrincipal.cs</DependentUpon>
     </Compile>
+    <Compile Include="FRMProducto_Buscar.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FRMProducto_Buscar.Designer.cs">
+      <DependentUpon>FRMProducto_Buscar.cs</DependentUpon>
+    </Compile>
     <Compile Include="FRMProducto_Lista.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -160,6 +173,18 @@
     </Compile>
     <Compile Include="FRMProducto_Registrar.Designer.cs">
       <DependentUpon>FRMProducto_Registrar.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FRMProveedor_Lista.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FRMProveedor_Lista.Designer.cs">
+      <DependentUpon>FRMProveedor_Lista.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FRMProveedor_Registrar.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FRMProveedor_Registrar.Designer.cs">
+      <DependentUpon>FRMProveedor_Registrar.cs</DependentUpon>
     </Compile>
     <Compile Include="FRMSplash.cs">
       <SubType>Form</SubType>
@@ -179,6 +204,18 @@
     <Compile Include="FRMUsuario_Registrar.Designer.cs">
       <DependentUpon>FRMUsuario_Registrar.cs</DependentUpon>
     </Compile>
+    <Compile Include="FRMVenta_Lista.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FRMVenta_Lista.Designer.cs">
+      <DependentUpon>FRMVenta_Lista.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FRMVenta_Registrar.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FRMVenta_Registrar.Designer.cs">
+      <DependentUpon>FRMVenta_Registrar.cs</DependentUpon>
+    </Compile>
     <Compile Include="MetodosGenerales.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -187,6 +224,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FRMCategoria_Registrar.resx">
       <DependentUpon>FRMCategoria_Registrar.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FRMCliente_Buscar.resx">
+      <DependentUpon>FRMCliente_Buscar.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FRMCliente_Lista.resx">
       <DependentUpon>FRMCliente_Lista.cs</DependentUpon>
@@ -221,11 +261,20 @@
     <EmbeddedResource Include="FRMPrincipal.resx">
       <DependentUpon>FRMPrincipal.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FRMProducto_Buscar.resx">
+      <DependentUpon>FRMProducto_Buscar.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FRMProducto_Lista.resx">
       <DependentUpon>FRMProducto_Lista.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FRMProducto_Registrar.resx">
       <DependentUpon>FRMProducto_Registrar.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FRMProveedor_Lista.resx">
+      <DependentUpon>FRMProveedor_Lista.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FRMProveedor_Registrar.resx">
+      <DependentUpon>FRMProveedor_Registrar.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FRMSplash.resx">
       <DependentUpon>FRMSplash.cs</DependentUpon>
@@ -235,6 +284,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FRMUsuario_Registrar.resx">
       <DependentUpon>FRMUsuario_Registrar.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FRMVenta_Lista.resx">
+      <DependentUpon>FRMVenta_Lista.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FRMVenta_Registrar.resx">
+      <DependentUpon>FRMVenta_Registrar.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -388,37 +443,10 @@
     <WCFMetadata Include="Connected Services\" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\ic_producto.png" />
+    <None Include="Resources\icons8-producto-100 %281%29.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\ic_categoria_nuevo.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\ic_categoria_modificar.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\ic_categoria_reporte.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\ic_categoria.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\ic_proveedor.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\ic_cliente.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\ic_cliente_guardar.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\ic_cliente_modificar.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\ic_cliente_reporte.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\ic_producto_nuevo.png" />
+    <None Include="Resources\ic_producto_añadir.png" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\ic_producto_modificar.png" />
@@ -427,7 +455,32 @@
     <None Include="Resources\ic_producto_reporte.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\ic_codigo_barras.png" />
+    <None Include="Resources\ic_categoria.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ic_categoria_añadir.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ic_categoria_modificar.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-cliente-100.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-proveedor-100.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ic_codigoDeBarras.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-cliente-100_agregar.png" />
+    <None Include="Resources\icons8-cliente-100_editar.png" />
+    <None Include="Resources\icons8-cliente-100_imprimir.png" />
+    <Content Include="Resources\ic_codigo_barras.png" />
+    <None Include="Resources\ic_venta_imprimir.png" />
+    <None Include="Resources\ic_venta_editar.png" />
+    <None Include="Resources\ic_venta_agregar.png" />
+    <None Include="Resources\ic_venta.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

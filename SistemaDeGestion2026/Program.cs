@@ -1,4 +1,7 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace SistemaDeGestion2026
@@ -13,7 +16,7 @@ namespace SistemaDeGestion2026
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new FRMProducto_Registrar());
+            Application.Run(new FRMPrincipal());
         }
     }
 }

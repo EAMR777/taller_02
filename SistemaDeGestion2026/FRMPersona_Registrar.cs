@@ -1,11 +1,16 @@
 ﻿using AForge.Video;
 using AForge.Video.DirectShow;
 using CapaRN;
-using DevComponents.DotNetBar;
 using DevComponents.DotNetBar.Controls;
 using SistemaDeGestion2026.Properties;
 using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
 using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace SistemaDeGestion2026
@@ -22,7 +27,6 @@ namespace SistemaDeGestion2026
         private FilterInfoCollection CaptureDevice; // list of webcam
         private VideoCaptureDevice FinalFrame;
         private bool TieneFoto = false;
-        
         #endregion
 
         #region Constructor
@@ -41,7 +45,7 @@ namespace SistemaDeGestion2026
             
             aperson persona2 = new aperson();
             persona2.capsnumcid = TXTCI.Text;
-
+            
             if (TXTCI.Text.Replace(" ", "") == "")
             {
                 MessageBox.Show("Introduzca el CI de la persona", "Validación", MessageBoxButtons.OK, MessageBoxIcon.Warning);
@@ -104,15 +108,15 @@ namespace SistemaDeGestion2026
         private void LimpiarCasillas()
         {
             SWBEstado.Value = true;
-            TXTCI.Text = "";
+            TXTCI.Text = "";      
         }
         private void JalarDatos()
         {
             persona.papscodper = this.codPerMod;
             persona.ObtenerDatos();
             SWBEstado.Value = persona.capsestper;
-            TXTCI.Text = persona.capsnumcid;
-            SWBSexo.Value = persona.capssexper;
+            TXTCI.Text = persona.capsnumcid;            
+            SWBSexo.Value = persona.capssexper;            
             DTINacimiento.Value = persona.capsfecnac;
             TXTApellidoPaterno.Text = persona.capsapepat;
             TXTApellidoMaterno.Text = persona.capsapemat;
@@ -135,7 +139,7 @@ namespace SistemaDeGestion2026
         #endregion
 
         #region Eventos
-
+            
         private void BTNSalir_Click(object sender, EventArgs e)
         {
             this.Close();
@@ -150,7 +154,7 @@ namespace SistemaDeGestion2026
                                 MessageBoxDefaultButton.Button2) == DialogResult.No)
             {
                 e.Cancel = true;
-            }
+            }            
             else
             {
                 ApagarCamara();
@@ -192,7 +196,7 @@ namespace SistemaDeGestion2026
                 teclaValida = true;
             else if ((e.KeyCode >= Keys.D0) && (e.KeyCode <= Keys.D9) && !e.Shift)
                 teclaValida = true;
-            else if
+            else if 
                 ((e.KeyCode == Keys.Back) ||
                 (e.KeyCode == Keys.Delete) ||
                 (e.KeyCode == Keys.Left) ||
@@ -241,7 +245,7 @@ namespace SistemaDeGestion2026
                 (e.KeyCode == Keys.Left) ||
                 (e.KeyCode == Keys.Right) ||
                 ((e.KeyCode == Keys.Oem4) && !e.Shift))
-                teclaValida = true;
+                teclaValida = true;            
             if (!teclaValida)
             {
                 e.SuppressKeyPress = true;
@@ -264,14 +268,14 @@ namespace SistemaDeGestion2026
                 (e.KeyCode == Keys.Left) ||
                 (e.KeyCode == Keys.Right) ||
                 (e.KeyCode == Keys.OemPeriod) ||
-                ((e.KeyCode == Keys.OemMinus) && e.Shift) ||
+                ((e.KeyCode == Keys.OemMinus)&&e.Shift) ||
                 (e.KeyCode == Keys.Decimal) ||
-                ((e.KeyCode == Keys.Q) && e.Alt) ||
-                ((e.KeyCode == Keys.Oemplus) && !e.Shift && !e.Alt) ||
+                ((e.KeyCode == Keys.Q)&&e.Alt) ||
+                ((e.KeyCode == Keys.Oemplus) && !e.Shift&&!e.Alt) ||
                 (e.KeyCode == Keys.Add) ||
                 ((e.KeyCode == Keys.OemMinus) && !e.Shift))
                 teclaValida = true;
-
+            
             if (!teclaValida)
             {
                 e.SuppressKeyPress = true;
@@ -290,7 +294,7 @@ namespace SistemaDeGestion2026
                     correlativo.pxnctipcor = "aperson";
                     if (correlativo.ObtenerSiguiente())
                     {
-                        persona.papscodper = correlativo.pxnctipcor + "-" +
+                        persona.papscodper = correlativo.pxnctipcor + "-" +                            
                                              correlativo.cxncnumcor.ToString("D12");
                     }
                 }
@@ -377,7 +381,7 @@ namespace SistemaDeGestion2026
         #endregion
 
         #region Metodos para la Cámara
-
+        
         private void DetectarCamaras()
         {
             CaptureDevice = new FilterInfoCollection(FilterCategory.VideoInputDevice);//constructor            
@@ -392,11 +396,11 @@ namespace SistemaDeGestion2026
                 FinalFrame.NewFrame += new NewFrameEventHandler(FinalFrame_NewFrame);// click button event is fired, 
                 FinalFrame.Start();
             }
-            catch
+            catch 
             {
                 MessageBox.Show("No se tiene una cámara conectada al equipo",
                     "Error de cámara",
-                    MessageBoxButtons.OK,
+                    MessageBoxButtons.OK, 
                     MessageBoxIcon.Error);
             }
         }
@@ -433,6 +437,19 @@ namespace SistemaDeGestion2026
             TieneFoto = true;
         }
 
+        private void balloonTip1_BalloonClosing(object sender, CancelEventArgs e)
+        {
 
+        }
+
+        private void TXTCelular_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void BTNLimpiar_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

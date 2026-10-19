@@ -1,5 +1,12 @@
 ﻿using CapaRN;
 using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace SistemaDeGestion2026
@@ -8,7 +15,7 @@ namespace SistemaDeGestion2026
     {
         #region Variables
         public aususis usuario = new aususis();
-        public aperson persona = new aperson();
+        public aperson persona = new aperson();        
         #endregion
 
         #region Constructor
@@ -20,7 +27,7 @@ namespace SistemaDeGestion2026
 
         #region Métodos
 
-        private void Estado_1()
+        private void Estado_1() 
         {
             foreach (Form s in this.MdiChildren)
             {
@@ -31,8 +38,8 @@ namespace SistemaDeGestion2026
             a.Show();
             BTNActualizarPassword.Enabled = false;
             BTNCerrarSesion.Enabled = false;
-            RTBAdministracion.Enabled = false;
-            RBPAdministracion.Enabled = false;
+            //RTBAdministracion.Enabled = false;
+            //RBPAdministracion.Enabled = false;
             BTNLogin.Enabled = true;
             BTNLoginHuella.Enabled = true;
         }
@@ -92,7 +99,7 @@ namespace SistemaDeGestion2026
 
         private void BTNLogin_Click(object sender, EventArgs e)
         {
-            FRMIniciar_Sesion a = new FRMIniciar_Sesion();
+            FRMIniciar_Sesion a = new FRMIniciar_Sesion();            
             a.ShowDialog();
             if (a.actualizarPassword)
             {
@@ -128,16 +135,27 @@ namespace SistemaDeGestion2026
 
         private void BTNCerrarSesion_Click(object sender, EventArgs e)
         {
-            if (MessageBox.Show("¿Desea cerrar sesión?",
-                                "Pregunta",
-                                MessageBoxButtons.YesNo,
+            if (MessageBox.Show("¿Desea cerrar sesión?", 
+                                "Pregunta", 
+                                MessageBoxButtons.YesNo, 
                                 MessageBoxIcon.Question) == DialogResult.Yes)
             {
                 Estado_1();
-            }
+            }            
         }
 
-        private void BTNCategorias_Click(object sender, EventArgs e)
+        private void BTNProductos_Click(object sender, EventArgs e)
+        {
+            foreach (Form s in this.MdiChildren)
+            {
+                s.Close();
+            }
+            FRMProducto_Lista a = new FRMProducto_Lista();
+            a.MdiParent = this;
+            a.Show();
+        }
+
+        private void BTNCategoria_Click(object sender, EventArgs e)
         {
             foreach (Form s in this.MdiChildren)
             {
@@ -148,12 +166,7 @@ namespace SistemaDeGestion2026
             a.Show();
         }
 
-        private void BTNProductos_Click(object sender, EventArgs e)
-        {
-            
-        }
-
-        private void BTNCliente_Click(object sender, EventArgs e)
+        private void BTNClientes_Click(object sender, EventArgs e)
         {
             foreach (Form s in this.MdiChildren)
             {
@@ -161,6 +174,24 @@ namespace SistemaDeGestion2026
             }
             FRMCliente_Lista a = new FRMCliente_Lista();
             a.MdiParent = this;
+            a.Show();
+        }
+
+        private void BTNProveedor_Click(object sender, EventArgs e)
+        {
+            foreach (Form s in this.MdiChildren)
+            {
+                s.Close();
+            }
+            FRMProveedor_Lista a = new FRMProveedor_Lista();
+            a.MdiParent = this;
+            a.Show();
+        }
+
+        private void BTNVentas_Click(object sender, EventArgs e)
+        {
+
+            FRMVenta_Registrar a = new FRMVenta_Registrar();
             a.Show();
         }
     }

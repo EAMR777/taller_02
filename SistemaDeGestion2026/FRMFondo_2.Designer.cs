@@ -72,6 +72,7 @@
             this.LBLFecha.TabIndex = 1;
             this.LBLFecha.Text = "Bermejo";
             this.LBLFecha.TextAlignment = System.Drawing.StringAlignment.Far;
+            this.LBLFecha.Click += new System.EventHandler(this.LBLFecha_Click);
             // 
             // LBLUsuario
             // 
@@ -96,7 +97,7 @@
             // 
             // FRMFondo_2
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(764, 344);
             this.Controls.Add(this.PNLBarraInferior);

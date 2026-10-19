@@ -119,7 +119,7 @@
             this.TXTNombreLogin.Location = new System.Drawing.Point(276, 35);
             this.TXTNombreLogin.Name = "TXTNombreLogin";
             this.TXTNombreLogin.PreventEnterBeep = true;
-            this.TXTNombreLogin.Size = new System.Drawing.Size(225, 26);
+            this.TXTNombreLogin.Size = new System.Drawing.Size(225, 23);
             this.TXTNombreLogin.TabIndex = 16;
             this.TXTNombreLogin.WatermarkText = "Login ";
             this.TXTNombreLogin.Enter += new System.EventHandler(this.TXTCI_Enter);
@@ -159,7 +159,7 @@
             this.BTNLimpiar.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
             this.BTNLimpiar.Image = global::SistemaDeGestion2026.Properties.Resources.ic_limpiar;
             this.BTNLimpiar.ImageFixedSize = new System.Drawing.Size(40, 40);
-            this.BTNLimpiar.Location = new System.Drawing.Point(130, 402);
+            this.BTNLimpiar.Location = new System.Drawing.Point(186, 402);
             this.BTNLimpiar.Name = "BTNLimpiar";
             this.BTNLimpiar.Size = new System.Drawing.Size(121, 51);
             this.BTNLimpiar.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
@@ -190,11 +190,12 @@
             this.TXTCI.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
             this.TXTCI.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.TXTCI.DisabledBackColor = System.Drawing.Color.White;
+            this.TXTCI.Enabled = false;
             this.TXTCI.ForeColor = System.Drawing.Color.Black;
             this.TXTCI.Location = new System.Drawing.Point(150, 3);
             this.TXTCI.Name = "TXTCI";
             this.TXTCI.PreventEnterBeep = true;
-            this.TXTCI.Size = new System.Drawing.Size(87, 26);
+            this.TXTCI.Size = new System.Drawing.Size(87, 23);
             this.TXTCI.TabIndex = 0;
             this.TXTCI.WatermarkText = "CI";
             this.TXTCI.Enter += new System.EventHandler(this.TXTCI_Enter);
@@ -209,11 +210,12 @@
             this.TXTNombres.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
             this.TXTNombres.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.TXTNombres.DisabledBackColor = System.Drawing.Color.White;
+            this.TXTNombres.Enabled = false;
             this.TXTNombres.ForeColor = System.Drawing.Color.Black;
             this.TXTNombres.Location = new System.Drawing.Point(9, 35);
             this.TXTNombres.Name = "TXTNombres";
             this.TXTNombres.PreventEnterBeep = true;
-            this.TXTNombres.Size = new System.Drawing.Size(261, 26);
+            this.TXTNombres.Size = new System.Drawing.Size(261, 23);
             this.TXTNombres.TabIndex = 4;
             this.TXTNombres.WatermarkText = "Nombre Completo ";
             // 
@@ -239,7 +241,7 @@
             // 
             // FRMUsuario_Registrar
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(520, 485);
             this.Controls.Add(this.GPPanelPrincipal);

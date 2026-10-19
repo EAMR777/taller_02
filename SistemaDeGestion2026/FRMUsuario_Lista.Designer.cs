@@ -34,6 +34,7 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FRMUsuario_Lista));
             this.DTGLista = new DevComponents.DotNetBar.Controls.DataGridViewX();
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column2 = new DevComponents.DotNetBar.Controls.DataGridViewCheckBoxXColumn();
@@ -109,6 +110,7 @@
             this.DTGLista.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.DTGLista.Size = new System.Drawing.Size(843, 412);
             this.DTGLista.TabIndex = 17;
+            this.DTGLista.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DTGLista_CellContentClick);
             this.DTGLista.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DTGLista_CellDoubleClick);
             // 
             // Column1
@@ -213,7 +215,7 @@
             this.TXTFiltrar.Location = new System.Drawing.Point(93, 41);
             this.TXTFiltrar.Name = "TXTFiltrar";
             this.TXTFiltrar.PreventEnterBeep = true;
-            this.TXTFiltrar.Size = new System.Drawing.Size(196, 26);
+            this.TXTFiltrar.Size = new System.Drawing.Size(196, 23);
             this.TXTFiltrar.TabIndex = 5;
             this.TXTFiltrar.WatermarkText = "Datos a buscar...";
             this.TXTFiltrar.Enter += new System.EventHandler(this.TXTFiltrar_Enter);
@@ -232,7 +234,7 @@
             this.IINFilas.MinValue = 0;
             this.IINFilas.Name = "IINFilas";
             this.IINFilas.ShowUpDown = true;
-            this.IINFilas.Size = new System.Drawing.Size(80, 26);
+            this.IINFilas.Size = new System.Drawing.Size(80, 23);
             this.IINFilas.TabIndex = 4;
             this.IINFilas.Value = 50;
             // 
@@ -272,7 +274,7 @@
             this.BTNActualizarPassword.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
             this.BTNActualizarPassword.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
             this.BTNActualizarPassword.Dock = System.Windows.Forms.DockStyle.Top;
-            this.BTNActualizarPassword.Image = global::SistemaDeGestion2026.Properties.Resources.ic_usuario_cambiar_password;
+            this.BTNActualizarPassword.Image = ((System.Drawing.Image)(resources.GetObject("BTNActualizarPassword.Image")));
             this.BTNActualizarPassword.ImageFixedSize = new System.Drawing.Size(60, 60);
             this.BTNActualizarPassword.ImagePosition = DevComponents.DotNetBar.eImagePosition.Top;
             this.BTNActualizarPassword.Location = new System.Drawing.Point(0, 365);
@@ -288,7 +290,7 @@
             this.BTNReporte.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
             this.BTNReporte.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
             this.BTNReporte.Dock = System.Windows.Forms.DockStyle.Top;
-            this.BTNReporte.Image = global::SistemaDeGestion2026.Properties.Resources.ic_usuario_reporte;
+            this.BTNReporte.Image = ((System.Drawing.Image)(resources.GetObject("BTNReporte.Image")));
             this.BTNReporte.ImageFixedSize = new System.Drawing.Size(60, 60);
             this.BTNReporte.ImagePosition = DevComponents.DotNetBar.eImagePosition.Top;
             this.BTNReporte.Location = new System.Drawing.Point(0, 254);
@@ -304,7 +306,7 @@
             this.BTNModificar.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
             this.BTNModificar.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
             this.BTNModificar.Dock = System.Windows.Forms.DockStyle.Top;
-            this.BTNModificar.Image = global::SistemaDeGestion2026.Properties.Resources.ic_usuario_modificar;
+            this.BTNModificar.Image = ((System.Drawing.Image)(resources.GetObject("BTNModificar.Image")));
             this.BTNModificar.ImageFixedSize = new System.Drawing.Size(60, 60);
             this.BTNModificar.ImagePosition = DevComponents.DotNetBar.eImagePosition.Top;
             this.BTNModificar.Location = new System.Drawing.Point(0, 143);
@@ -320,7 +322,7 @@
             this.BTNRegistrar.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
             this.BTNRegistrar.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
             this.BTNRegistrar.Dock = System.Windows.Forms.DockStyle.Top;
-            this.BTNRegistrar.Image = global::SistemaDeGestion2026.Properties.Resources.ic_usuario_nuevo;
+            this.BTNRegistrar.Image = ((System.Drawing.Image)(resources.GetObject("BTNRegistrar.Image")));
             this.BTNRegistrar.ImageFixedSize = new System.Drawing.Size(60, 60);
             this.BTNRegistrar.ImagePosition = DevComponents.DotNetBar.eImagePosition.Top;
             this.BTNRegistrar.Location = new System.Drawing.Point(0, 32);
@@ -339,32 +341,32 @@
             this.eliminarToolStripMenuItem,
             this.habilitarToolStripMenuItem});
             this.CMSMenu.Name = "CMSMenu";
-            this.CMSMenu.Size = new System.Drawing.Size(146, 76);
+            this.CMSMenu.Size = new System.Drawing.Size(128, 70);
             this.CMSMenu.Opening += new System.ComponentModel.CancelEventHandler(this.CMSMenu_Opening);
             // 
             // modificarToolStripMenuItem
             // 
             this.modificarToolStripMenuItem.Name = "modificarToolStripMenuItem";
-            this.modificarToolStripMenuItem.Size = new System.Drawing.Size(145, 24);
+            this.modificarToolStripMenuItem.Size = new System.Drawing.Size(127, 22);
             this.modificarToolStripMenuItem.Text = "&Modificar";
             // 
             // eliminarToolStripMenuItem
             // 
             this.eliminarToolStripMenuItem.Name = "eliminarToolStripMenuItem";
-            this.eliminarToolStripMenuItem.Size = new System.Drawing.Size(145, 24);
+            this.eliminarToolStripMenuItem.Size = new System.Drawing.Size(127, 22);
             this.eliminarToolStripMenuItem.Text = "&Inhabilitar";
             this.eliminarToolStripMenuItem.Click += new System.EventHandler(this.eliminarToolStripMenuItem_Click);
             // 
             // habilitarToolStripMenuItem
             // 
             this.habilitarToolStripMenuItem.Name = "habilitarToolStripMenuItem";
-            this.habilitarToolStripMenuItem.Size = new System.Drawing.Size(145, 24);
+            this.habilitarToolStripMenuItem.Size = new System.Drawing.Size(127, 22);
             this.habilitarToolStripMenuItem.Text = "&Habilitar";
             this.habilitarToolStripMenuItem.Click += new System.EventHandler(this.habilitarToolStripMenuItem_Click);
             // 
             // FRMUsuario_Lista
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(937, 485);
             this.Controls.Add(this.DTGLista);

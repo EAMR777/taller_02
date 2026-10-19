@@ -1,9 +1,10 @@
-﻿//Libreria para acceso a Capa de Acceso a Datos
-using CapaAD;
-using System;
+﻿using System;
 using System.Collections.Generic;
+using System.Text;
 //Libreria para acceso a datos
 using System.Data.Common;
+//Libreria para acceso a Capa de Acceso a Datos
+using CapaAD;
 
 namespace CapaRN
 {
@@ -55,7 +56,7 @@ namespace CapaRN
 
             DbDataReader ResultadoConsulta = Conexion.EjecutarConsulta();
 
-
+            
 
             if (ResultadoConsulta.Read())
             {
@@ -86,7 +87,7 @@ namespace CapaRN
 
             DbDataReader ResultadoConsulta = Conexion.EjecutarConsulta();
 
-
+            
 
             if (ResultadoConsulta.HasRows)
             {

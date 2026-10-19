@@ -16,58 +16,117 @@ namespace SistemaDeGestion2026
         #region Variables
         private aclient cliente = new aclient();
         private aperson persona = new aperson();
-        public bool personaOK = false;
+        private bool personaok = false;
         private xnumcor correlativo = new xnumcor();
         public bool modificar = false;
         public String codCliMod = "";
         public bool actualizar = false;
         #endregion
-
-        #region Constructor
         public FRMCliente_Registrar()
         {
             InitializeComponent();
         }
-        #endregion
+        private void JalarDatos()
+        {
+            cliente.pacecodcli = this.codCliMod;
+            cliente.ObtenerDatos();
+            persona.papscodper = cliente.facecodper;
+            persona.ObtenerDatos();
+            SWBEstado.Value = cliente.caceestcli;
+            TXTCI.Text = persona.capsnumcid;
+            TXTNombres.Text = persona.capsapepat + " " +
+                                persona.capsapemat + " " +
+                                persona.capsnomper;
+            TXTDireccion.Text = cliente.cacedircli;
+            TXTNit.Text = cliente.cacenitcli;
+            TXTRazonSocial.Text = cliente.cacerazsoc;
+            TXTTelefono.Text = cliente.cacetelcli;
+            
+            
+        }
 
-        #region Metodos
+        private void FRMCliente_Registrar_Load(object sender, EventArgs e)
+        {
+            if (this.modificar)
+            {
+                JalarDatos();
+                BTNGrabar.Text = "&Modificar";
+                this.Text = "Modificar cliente";
+                GPPanelPrincipal.Text = "Modificar cliente";
+                TXTCI.Focus();
+            }
+            else
+            {
+                LimpiarCasillas();
+                BTNGrabar.Text = "&Guardar";
+                this.Text = "Registrar cliente";
+                GPPanelPrincipal.Text = "Registrar cliente";
+                TXTCI.Focus();
+            }
+        }
+
+        private void BTNBuscarCliente_Click(object sender, EventArgs e)
+        {
+            FRMPersona_Buscar a = new FRMPersona_Buscar();
+            a.tipo = 2;
+            a.ShowDialog();
+            if (a.seleccionadoOk)
+            {
+                this.persona = a.persona;
+                this.personaok = true;
+                TXTCI.Text = persona.capsnumcid;
+                TXTNombres.Text = persona.capsapepat + " " +
+                                  persona.capsapemat + " " +
+                                  persona.capsnomper;
+            }
+            else
+            {
+                this.personaok = false;
+                TXTCI.Text = "";
+                TXTNombres.Text = "Nombre Completo";
+            }
+        }
         private bool VerificarIntegridad()
         {
             bool respuesta = true;
+            aclient cliente2 = new aclient();
+            cliente2.cacenitcli = TXTNit.Text;
 
-
-            if (TXTNIT.Text.Replace(" ", "") == "")
+            if (TXTNit.Text.Replace(" ", "") == "")
             {
-                MessageBox.Show("Introduzca el NIT", "Validación", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                TXTNIT.Focus();
+                MessageBox.Show("Introduzca el NIT del cliente", "Validación", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                TXTNit.Focus();
+                respuesta = false;
+            }
+            else if (cliente2.ObtenerDatosNit(modificar,cliente.cacenitcli))
+            {
+                MessageBox.Show("Este NIT ya existe", "Validación", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                TXTNit.Focus();
                 respuesta = false;
             }
             else if (TXTRazonSocial.Text.Replace(" ", "") == "")
             {
-                MessageBox.Show("Introduzca la Razón Social", "Validación", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Introduzca la razon social del cliente", "Validación", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 TXTRazonSocial.Focus();
                 respuesta = false;
             }
+            
             else if (TXTDireccion.Text.Replace(" ", "") == "")
             {
-                MessageBox.Show("Introduzca la dirección", "Validación", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Introduzca la direccion del cliente", "Validación", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 TXTDireccion.Focus();
                 respuesta = false;
             }
             else if (TXTTelefono.Text.Replace(" ", "") == "")
             {
-                MessageBox.Show("Introduzca el teléfono", "Validación", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                TXTTelefono.Focus();
-                respuesta = false;
-            }
-            else if (TXTNombre.Text.Replace(" ", "") == "")
-            {
-                MessageBox.Show("No seleccionó una persona", "Validación", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                
+                 MessageBox.Show("Introduzca el telefono del cliente", "Validación", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 TXTTelefono.Focus();
                 respuesta = false;
             }
 
-
+            
+         
 
             return respuesta;
         }
@@ -75,85 +134,55 @@ namespace SistemaDeGestion2026
         {
             SWBEstado.Value = true;
             TXTRazonSocial.Text = "";
-            TXTNIT.Text = "";
+            TXTNit.Text = "";
             TXTDireccion.Text = "";
             TXTTelefono.Text = "";
-            TXTNombre.Text = "";
-        }
-
-        private void JalarDatos()
-        {
-
-            persona.papscodper = this.codCliMod;
-            persona.ObtenerDatos();
-
-            cliente.faclcodper = this.codCliMod;
-            cliente.ObtenerDatos();
-
-            SWBEstado.Value = cliente.caclestcli;
-            TXTRazonSocial.Text = cliente.caclrazcli;
-            TXTNIT.Text = cliente.caclnitcli;
-            TXTDireccion.Text = cliente.cacldircli;
-            TXTTelefono.Text = cliente.cacltelcli;
-            TXTNombre.Text = persona.capsapepat + " " + persona.capsapemat + " " + persona.capsnomper;
-        }
-        #endregion
-
-        #region Eventos
-        private void BTNBuscarUsuario_Click(object sender, EventArgs e)
-        {
-            FRMPersona_Buscar a = new FRMPersona_Buscar();
-            a.condicion = "papscodper not in (select papscodper from aperson,aclient where papscodper=faclcodper order by papscodper)";
-            a.ShowDialog();
-            if (a.seleccionadoOk)
-            {
-                this.persona = a.persona;
-                this.personaOK = true;
-
-                TXTNombre.Text = persona.capsapepat + " " + persona.capsapemat + " " + persona.capsnomper;
-                
-            }
-            else
-            {
-                this.personaOK = false;
-                TXTNombre.Text = "Persona";
-
-            }
+            TXTCI.Text = "";
+            TXTNombres.Text = "";
         }
 
         private void BTNGrabar_Click(object sender, EventArgs e)
         {
             if (VerificarIntegridad())
             {
-
-
-                cliente.caclestcli = SWBEstado.Value;
-                cliente.caclnitcli = TXTNIT.Text;
-                cliente.caclrazcli = TXTRazonSocial.Text;
-                cliente.cacldircli = TXTDireccion.Text;
-                cliente.cacltelcli = TXTTelefono.Text;
-
-
-
+                if (!this.modificar)
+                {
+                    //Generar el correlativo
+                    correlativo.pxnctipcor = "aclient";
+                    if (correlativo.ObtenerSiguiente())
+                    {
+                        cliente.pacecodcli = correlativo.pxnctipcor + "-" +
+                                             correlativo.cxncnumcor.ToString("D12");
+                    }
+                }
+                else
+                {
+                    cliente.pacecodcli = this.codCliMod;
+                }
+                cliente.caceestcli = SWBEstado.Value;
+                cliente.cacerazsoc = TXTRazonSocial.Text;
+                cliente.cacenitcli = TXTNit.Text;
+                cliente.cacedircli  = TXTDireccion.Text;
+                cliente.cacetelcli = TXTTelefono.Text;
+                cliente.facecodper = persona.papscodper;
 
 
                 if (!this.modificar)
                 {
-                    cliente.faclcodper = persona.papscodper;
                     if (cliente.Grabar())
                     {
-                        MessageBox.Show("Cliente guardado correctamente!!",
+                        MessageBox.Show("cliente guardado correctamente!!",
                                         "Mensaje",
                                         MessageBoxButtons.OK,
                                         MessageBoxIcon.Information);
                         LimpiarCasillas();
                         this.actualizar = true;
-
+                        this.FormClosing -= FRMCliente_Registrar_FormClosing;
                         this.Close();
                     }
                     else
                     {
-                        MessageBox.Show("Cliente no se pudo guardar!!",
+                        MessageBox.Show("cliente no se pudo guardar!!",
                                         "Error",
                                         MessageBoxButtons.OK,
                                         MessageBoxIcon.Warning);
@@ -163,18 +192,18 @@ namespace SistemaDeGestion2026
                 {
                     if (cliente.Modificar())
                     {
-                        MessageBox.Show("Cliente modificado correctamente!!",
+                        MessageBox.Show("cliente modificado correctamente!!",
                                         "Mensaje",
                                         MessageBoxButtons.OK,
                                         MessageBoxIcon.Information);
                         LimpiarCasillas();
                         this.actualizar = true;
-
+                        this.FormClosing -= FRMCliente_Registrar_FormClosing;
                         this.Close();
                     }
                     else
                     {
-                        MessageBox.Show("Cliente no se pudo modificar!!",
+                        MessageBox.Show("cliente no se pudo modificar!!",
                                             "Error",
                                             MessageBoxButtons.OK,
                                             MessageBoxIcon.Warning);
@@ -183,31 +212,37 @@ namespace SistemaDeGestion2026
             }
         }
 
-        private void FRMCliente_Registrar_Load(object sender, EventArgs e)
+        private void FRMCliente_Registrar_FormClosing(object sender, FormClosingEventArgs e)
         {
-            if (this.modificar)
+             if (MessageBox.Show("¿Está seguro que desea cerrar el formulario?",
+                                "Pregunta",
+                                MessageBoxButtons.YesNo,
+                                MessageBoxIcon.Question,
+                                MessageBoxDefaultButton.Button2) == DialogResult.No)
             {
-                JalarDatos();
-                BTNGrabar.Text = "&Modificar";
-                this.Text = "Modificar Cliente";
-                GP_Panel_Usuario.Text = "Modificar Cliente";
-                TXTNIT.Focus();
-            }
-            else
-            {
-                LimpiarCasillas();
-                BTNGrabar.Text = "&Guardar";
-                this.Text = "Registrar Cliente";
-                GP_Panel_Usuario.Text = "Registrar Cliente";
-                TXTNIT.Focus();
-            }
+                e.Cancel = true;
+            }            
         }
 
-        private void BTNSalir_Click(object sender, EventArgs e)
+        private void TXTNit_KeyDown(object sender, KeyEventArgs e)
         {
-            this.Close();
-        }
+            bool teclaValida = false;
 
-        #endregion
+            if ((e.KeyCode >= Keys.NumPad0) && (e.KeyCode <= Keys.NumPad9))
+                teclaValida = true;
+            else if ((e.KeyCode >= Keys.D0) && (e.KeyCode <= Keys.D9) && !e.Shift)
+                teclaValida = true;
+            else if
+                ((e.KeyCode == Keys.Back) ||
+                (e.KeyCode == Keys.Delete) ||
+                (e.KeyCode == Keys.Left) ||
+                (e.KeyCode == Keys.Right))
+                teclaValida = true;
+
+            if (!teclaValida)
+            {
+                e.SuppressKeyPress = true;
+            }
+        }
     }
 }
