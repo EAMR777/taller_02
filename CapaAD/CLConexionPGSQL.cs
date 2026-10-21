@@ -45,6 +45,7 @@ namespace CapaAD
         /// </summary>
         public CLConexionPGSQL()
         {
+            Conexion = new NpgsqlConnection();
             try
             {
                 this.CadenaDeConexion = "Server=" + ConfigurationManager.AppSettings.Get("SV") +
@@ -130,7 +131,8 @@ namespace CapaAD
             StreamWriter sw = File.AppendText(path);
             try
             {
-                sw.WriteLine(DateTime.Now.ToString("dd/MM/yyyy hh:mm:ss tt") + "|" + this.Comando.CommandText + "|" + msg_error);
+                string textoComando = this.Comando == null ? "Sin comando preparado" : this.Comando.CommandText;
+                sw.WriteLine(DateTime.Now.ToString("dd/MM/yyyy hh:mm:ss tt") + "|" + textoComando + "|" + msg_error);
             }
             catch (Exception ex)
             {
